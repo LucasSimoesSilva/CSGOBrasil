@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSGO Brasil</title>
+	<link rel="stylesheet" type="text/css" href="style-pontos.css">
+</head>
+
+<body>
+	<script src="slider.js"></script>
+	<header>
+		<!-- Logo -->
+		<div class="logo">
+			<a href="/homePage/home-page.html">
+				<img src="../images/logo.png" alt="Logo">
+			</a>
+		</div>
+
+		<!-- Menu navegação -->
+		<div class="menu">
+			<nav class="navegacao">
+				<a href="/homePage/home-page.html">Home</a>
+				<a href="/cadastroPage/registro.html">Login</a>
+				<a href="/pontosPage/Pontos.html">Pontos</a>
+				<a href="/skinsPage/Skins.html" id="last-element-bar">Skins</a>
+			</nav>
+		</div>
+	</header>
+
+	<!-- Body -->
+	<div class="content">
+		<!-- Card -->
+		<nav id="container_cards">
+			<div id="page-wrap">
+				<img src="../images/coin.gif" alt="Adquira seus pontos">
+			</div>
+			<div id="sidebar">
+				<div class="top_card">
+					<div class="logo5">
+						<img src="../images/logo.png" alt="Logo">
+					</div>
+					<div class="text_top">
+						<h3>PONTOS CSGO</h3>
+					</div>
+				</div>
+				<hr>
+				<br><br>
+				<div class="container">
+					<div>
+						<button id="botao1" onclick="showConfirmationPopup(500, 23.00);"> 500 pontos</button>
+					</div>
+					<br>
+					<div class="pacote">
+						<button id="botao2" onclick="showConfirmationPopup(1000, 46.00);"> 1000 pontos
+						</button>
+					</div>
+					<br>
+					<div class="pacote">
+						<button id="botao3" onclick="showConfirmationPopup(2000, 98.00);"> 2000 pontos
+						</button>
+					</div>
+					<br>
+					<div class="pacote">
+						<button id="botao4" onclick="showConfirmationPopup(5000, 160.00);"> 5000 pontos
+						</button>
+					</div>
+				</div>
+
+				<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+				<script>
+
+					function showConfirmationPopup(moedas, valor) {
+						Swal.fire({
+							title: 'Confirmação de Compra',
+							text: 'Você realmente deseja comprar ' + moedas + ' moedas por R$' + valor + '?',
+							icon: 'question',
+							showCancelButton: true,
+							confirmButtonText: 'Confirmar',
+							cancelButtonText: 'Cancelar'
+						}).then((result) => {
+							if (result.isConfirmed) {
+								Swal.fire('Compra Confirmada', 'Moedas adicionadas com sucesso!', 'success');
+							} else {
+								Swal.fire('Compra Cancelada', 'A compra foi cancelada.', 'info');
+							}
+						});
+					}
+				</script>
+			</div>
+		</nav>
+
+		<!-- Linha separadora -->
+		<div class="line"></div>
+		<div class="line2"></div>
+
+		<!-- Texto separatório -->
+		<div class="interm2">
+			<div class="block-interm2">
+				<h3 class="text-middle2">FORMAS DE PAGAMENTO</h3>
+			</div>
+		</div>
+
+		<!-- Formas de pagamento -->
+		<div class="pagamento">
+			<img src="https://d2r9epyceweg5n.cloudfront.net/stores/001/860/687/rte/NO%20CART%C3%83O%20(1).png"
+				alt="Formas de pagamento">
+		</div>
+
+		<!-- Linha separadora -->
+		<div class="line"></div>
+		<div class="line2"></div>
+	</div>
+
+	<!-- Rodapé -->
+	<footer class="footer-distributed">
+		<div class="footer-right">
+			<div class="logo3">
+				<img src="../images/logo.png" alt="Logo">
+			</div>
+			<p>CSGO Brasil &copy; 2023</p>
+		</div>
+		<div class="footer-left">
+			<p class="footer-links">
+			<p>Andy Hyong Tae Choi Youn | RA: 12522142446</p>
+			<p>Felipe Daura | RA: 1252214120</p>
+			<p>Giovanni Lopes Campos | RA: 12522149685</p>
+			<p>Lucas Simões Carvalho da Silva | RA: 12522161179</p>
+			<p>Marcelo Henrique da Silva Ventura | RA: 12522128126</p>
+			</p>
+		</div>
+	</footer>
+</body>
+
+</html>

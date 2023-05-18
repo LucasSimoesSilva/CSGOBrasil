@@ -1,0 +1,44 @@
+button {
+    padding: 10px;
+    background-color: rgba(81, 59, 206, 0.582);
+    border-radius: 15px;
+  }
+  
+  .container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+  }
+  
+  button:hover {
+    background-color: rgba(34, 16, 133, 0.582);
+  }
+  
+  .cabeÃ§alho {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  footer {
+    background-color: rgba(0, 0, 0, 0.493);
+  }
+  
+  p {
+    font-size: large;
+  }
+  
+  .counter {
+    position: absolute;
+    top: 3px;
+    right: 350px;
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: blueviolet;
+  }
