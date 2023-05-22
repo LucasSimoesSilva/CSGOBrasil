@@ -86,15 +86,6 @@ nav a {
   margin: 0;
 }
 
-.footer-distributed p.footer-links {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffffff;
-  margin: 0 0 10px;
-  padding: 0;
-  transition: ease .25s;
-}
-
 .footer-distributed .footer-right {
   float: right;
   margin-top: 6px;

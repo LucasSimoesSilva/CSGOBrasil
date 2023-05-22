@@ -7,10 +7,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CSGO Brasil</title>
 	<link rel="stylesheet" type="text/css" href="style-pontos.css">
+
+	<script src="../scriptsGerais/points.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+	<script>
+		let points;
+
+		document.addEventListener("DOMContentLoaded", function () {
+			points = document.querySelector(".pontos");
+		});
+
+		function showConfirmationPopup(moedas) {
+			if (points) {
+				Swal.fire({
+					title: 'Confirmação de Compra',
+					text: 'Você realmente deseja comprar ' + moedas + ' moedas ?',
+					icon: 'question',
+					showCancelButton: true,
+					confirmButtonText: 'Confirmar',
+					cancelButtonText: 'Cancelar'
+				}).then((result) => {
+					if (result.isConfirmed) {
+						Swal.fire('Compra Confirmada', 'Moedas adicionadas com sucesso!', 'success');
+					} else {
+						Swal.fire('Compra Cancelada', 'A compra foi cancelada.', 'info');
+					}
+				});
+			}
+		}
+
+	</script>
 </head>
 
 <body>
-	<script src="slider.js"></script>
 	<header>
 		<!-- Logo -->
 		<div class="logo">
@@ -49,46 +78,28 @@
 				<hr>
 				<br><br>
 				<div class="container">
+					<div class="pontos">Pontos: 0</div>
 					<div>
-						<button id="botao1" onclick="showConfirmationPopup(500, 23.00);"> 500 pontos</button>
+						<button id="botao1" onclick="showConfirmationPopup(500);"> 500 pontos</button>
 					</div>
 					<br>
 					<div class="pacote">
-						<button id="botao2" onclick="showConfirmationPopup(1000, 46.00);"> 1000 pontos
+						<button id="botao2" onclick="showConfirmationPopup(1000);"> 1000 pontos
 						</button>
 					</div>
 					<br>
 					<div class="pacote">
-						<button id="botao3" onclick="showConfirmationPopup(2000, 98.00);"> 2000 pontos
+						<button id="botao3" onclick="showConfirmationPopup(2000);"> 2000 pontos
 						</button>
 					</div>
 					<br>
 					<div class="pacote">
-						<button id="botao4" onclick="showConfirmationPopup(5000, 160.00);"> 5000 pontos
+						<button id="botao4" onclick="showConfirmationPopup(5000);"> 5000 pontos
 						</button>
 					</div>
 				</div>
 
-				<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
-				<script>
 
-					function showConfirmationPopup(moedas, valor) {
-						Swal.fire({
-							title: 'Confirmação de Compra',
-							text: 'Você realmente deseja comprar ' + moedas + ' moedas por R$' + valor + '?',
-							icon: 'question',
-							showCancelButton: true,
-							confirmButtonText: 'Confirmar',
-							cancelButtonText: 'Cancelar'
-						}).then((result) => {
-							if (result.isConfirmed) {
-								Swal.fire('Compra Confirmada', 'Moedas adicionadas com sucesso!', 'success');
-							} else {
-								Swal.fire('Compra Cancelada', 'A compra foi cancelada.', 'info');
-							}
-						});
-					}
-				</script>
 			</div>
 		</nav>
 
@@ -132,6 +143,9 @@
 			</p>
 		</div>
 	</footer>
+
+
+
 </body>
 
 </html>

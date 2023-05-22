@@ -1,0 +1,1 @@
+var pontos = 0;
