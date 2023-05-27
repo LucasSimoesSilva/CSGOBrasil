@@ -1,4 +1,4 @@
-# CSGOBrasil
+# CSGOBrasil (em criação)
 - Projeto para a avaliação A3 das UCs de Sistemas Distribuídos e Mobile e Usabilidade, Desenvolvimento Web, Mobile e Jogos
 
 ## Back-end
