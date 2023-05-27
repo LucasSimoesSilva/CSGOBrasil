@@ -4,7 +4,7 @@
 ## Back-end
 - Linguagem: Java JDK 11
 - IDE: IntelliJ IDEA Communit Edition 2022.2.3
-- Tecnlogia utilizada: RMI (Remote Method Invocation)
+- Tecnlogia utilizada: REST API
 - Banco de dados: MySQL
 
 
@@ -12,3 +12,4 @@
 - Linguagem: JavaScript
 - IDE: Visual Studio Code 1.78.2
 - Linguagens auxiliares: HTML, CSS
+- Tecnologias auxiliares: Node.js v18.14.2
