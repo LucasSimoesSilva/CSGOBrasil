@@ -99,6 +99,7 @@ public class UserRepository {
             rs.next();
             user = getUser();
             if (user.getEmail() != null) {
+                user.setSkinsPossuidas(listSkinsFromUser(user.getId()));
                 return user;
             }
 
@@ -231,10 +232,6 @@ public class UserRepository {
             }
         } catch (SQLException e) {
             System.out.println("Erro ao listar skins do usuário\n");
-        }
-
-        if (skins.isEmpty()) {
-            return skins;
         }
 
         return skins;

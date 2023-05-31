@@ -67,6 +67,7 @@ insert into skin(nome,arma,preco,raridade,imagem) values
 
 insert into skinsuser(id_user, id_skin) values(1,1);
 insert into skinsuser(id_user, id_skin) values(1,3);
+insert into skinsuser(id_user, id_skin) values(2,4);
 
 insert into movement(id_vendedor,id_skin, estado_venda, pontos) values (1,3,false,7000);
 
