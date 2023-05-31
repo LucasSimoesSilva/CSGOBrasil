@@ -34,14 +34,31 @@ async function makeLogin(email, senha) {
 
     checkLogin(data).then((result) => {
         if (result) {
-            window.location.href = "/homePage/home-page.html";
-            console.log("Entrou")
+            getUserInfo(email).then(() => {
+                window.location.href = "/homePage/home-page.html";
+            });
         } else {
             alertText_login.classList.remove('invisibleText');
             alertText_login.classList.add('alertText');
         }
     });
 }
+
+
+
+async function getUserInfo(email) {
+    const response = await fetch('http://localhost:8080/user/info', {
+        method: 'POST',
+        headers: {
+            "content-type": "text/plain"
+        },
+        body: email
+    });
+
+    var usuarioId = await response.json();
+    localStorage.setItem("usuarioId", usuarioId.id);
+}
+
 
 async function addUserPersistence(data) {
     const response = await fetch('http://localhost:8080/user', {
@@ -69,7 +86,9 @@ function addUser(nome, email, senha) {
             alertText_cad.classList.add('alertText');
         } else {
             addUserPersistence(data);
-            window.location.href = "/homePage/home-page.html";
+            getUserInfo(email).then(() => {
+                window.location.href = "/homePage/home-page.html";
+            });
         }
     });
 
@@ -97,8 +116,6 @@ document.getElementById("form_login").addEventListener("submit", function (event
 
 var alertText_cad = document.getElementById('alertText_cad');
 var alertText_login = document.getElementById('alertText_login');
-
-
 
 
 // Função para ler todos os usuários da lista
