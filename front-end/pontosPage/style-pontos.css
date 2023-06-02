@@ -1,51 +1,14 @@
-/* Header */
-header {
+#staticHeader {
   left: 0;
   top: 0;
   width: 100%;
-  background-color: #292c2f;
   position: fixed;
-  align-items: center;
-  border-bottom: 1px solid #000000;
   z-index: 11;
-  display: flex;
-  justify-content: space-between;
-  padding: 25px;
-}
-
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.logo img {
-  width: 70px;
-  height: 40px;
-}
-
-.navegacao {
-  scroll-behavior: smooth;
-}
-
-.navegacao a:hover,
-.logo:hover {
-  opacity: 0.5;
-}
-
-nav a {
-  padding: 20px;
-  text-decoration: none;
-  color: #ffffff;
-}
-
-#last-element-bar {
-  margin-right: 30px;
 }
 
 .content {
   /* Padding para deixar o menu de navegação fixed sem o content ficar em cima */
-  padding-top: 100px;
+  padding-top: 150px;
 }
 
 .interm {
@@ -405,23 +368,25 @@ nav a {
     line-height: 1.8;
   }
 }
-.pontos{
+
+.pontos {
   color: rgb(0, 0, 0);
   font-size: 35px;
-  font-weight:bold;
-    
+  font-weight: bold;
+
 }
-.points{
+
+.points {
   display: flex;
-    align-items: center;
+  align-items: center;
 }
 
 
-button{
+button {
   display: inline-block;
   padding: 0.35em 1.2em;
   border: 0.1em solid #000000;
-  background-color:#010405ab;
+  background-color: #010405ab;
   width: 100%;
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.12em;
@@ -436,16 +401,18 @@ button{
   text-transform: uppercase;
   cursor: pointer;
 }
+
 button:hover {
   border-color: #ff0000;
   background-color: #0104054d;
 }
+
 .container {
   align-items: center;
   column-gap: 5px;
 }
 
-.container div{
+.container div {
   padding: 0 20px;
   align-items: center;
   text-align: center;

@@ -1,51 +1,9 @@
-/* Header */
-header {
+#staticHeader {
   left: 0;
   top: 0;
   width: 100%;
-  background-color: #292c2f;
   position: fixed;
-  align-items: center;
-  border-bottom: 1px solid #000000;
   z-index: 11;
-  display: flex;
-  justify-content: space-between;
-  padding: 25px;
-}
-
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.logo img {
-  width: 70px;
-  height: 40px;
-}
-
-.navegacao {
-  scroll-behavior: smooth;
-}
-
-.navegacao a:hover,
-.logo:hover {
-  opacity: 0.5;
-}
-
-nav a {
-  padding: 20px;
-  text-decoration: none;
-  color: #ffffff;
-}
-
-#last-element-bar {
-  margin-right: 30px;
-}
-
-.content {
-  /* Padding para deixar o menu de navegação fixed sem o content ficar em cima */
-  padding-top: 100px;
 }
 
 .interm {
@@ -64,7 +22,7 @@ nav a {
 
 /* Para deixar menu nav fixed sem o container (body) ficar em cima */
 .container {
-  padding-top: 100px;
+  padding-top: 150px;
 }
 
 /* Footer */
@@ -127,6 +85,7 @@ nav a {
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .items {
   border: 1px solid;
   height: 300px;

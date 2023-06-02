@@ -55,8 +55,10 @@ async function getUserInfo(email) {
         body: email
     });
 
-    var usuarioId = await response.json();
-    localStorage.setItem("usuarioId", usuarioId.id);
+    await response.json().then((usuario) => {
+        localStorage.setItem("usuarioId", usuario.id);
+    });
+    
 }
 
 
