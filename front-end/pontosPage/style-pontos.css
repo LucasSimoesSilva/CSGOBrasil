@@ -174,24 +174,6 @@
   display: list-item;
 }
 
-.moedas li {
-  margin-left: 0;
-  padding: 15px 0;
-  line-height: 1.2;
-  width: 400px;
-
-}
-
-.moedas li a {
-  margin-left: 0;
-  padding-left: 0;
-  display: flex;
-  background-color: #4b4848;
-  padding: 10px 0;
-  width: 400px;
-
-}
-
 .product-selection[_ngcontent-tca-c98] .options[_ngcontent-tca-c98] storefront-product-option[_ngcontent-tca-c98],
 .product-selection[_ngcontent-tca-c98] .options[_ngcontent-tca-c98] storefront-product-option-variable-balance[_ngcontent-tca-c98] {
   cursor: pointer;
@@ -217,107 +199,8 @@
 .slide img {
   height: 267px;
   width: 200px;
-
 }
 
-/* Animação para cards */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-250px * 6))
-  }
-}
-
-#logos-home-page .slider {
-  height: auto;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-#logos-home-page .slider:before,
-#logos-home-page .slider:after {
-  background: linear-gradient(to right, rgb(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
-  content: "";
-  height: 300px;
-  position: absolute;
-  width: 300px;
-  z-index: 2;
-}
-
-#logos-home-page .slider:after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
-}
-
-#logos-home-page .slider:before {
-  left: 0;
-  top: 0;
-}
-
-#logos-home-page .slide-track {
-  animation: scroll 40s linear infinite;
-  display: flex;
-  width: calc(250px * 14);
-}
-
-#logos-home-page div.slide {
-  padding: 0 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.items {
-  border: 1px solid;
-  height: 300px;
-  width: 250px;
-  border-radius: 10px;
-  background-color: #bbbbbb;
-}
-
-.cardimg {
-  height: 150px;
-}
-
-.grade {
-  display: flex;
-  gap: 1rem;
-  flex: 1 0;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-@keyframes littleFly {
-  from {
-    margin-top: 1%;
-  }
-
-  to {
-    margin-bottom: 0%;
-  }
-}
-
-.items:hover {
-  animation: 100s 0s infinite running littleFly;
-}
-
-.items:hover {
-  box-shadow: 5px 5px 10px rgb(255, 0, 0);
-}
-
-.items1:hover {
-  animation: 100s 0s infinite running littleFly;
-}
-
-.items1:hover {
-  box-shadow: 5px 5px 10px rgb(255, 0, 0);
-}
 
 /* Footer */
 .footer-distributed {
@@ -370,19 +253,13 @@
 }
 
 .pontos {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 35px;
   font-weight: bold;
-
+  margin-bottom: 10px;
 }
 
-.points {
-  display: flex;
-  align-items: center;
-}
-
-
-button {
+div.divPoints, button.btnPoints{
   display: inline-block;
   padding: 0.35em 1.2em;
   border: 0.1em solid #000000;
@@ -391,7 +268,6 @@ button {
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.12em;
   box-sizing: border-box;
-  text-decoration: none;
   font-family: "Lucida Console", "Courier New", monospace;
   font-weight: 300;
   font-size: 20px;
@@ -402,18 +278,33 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+div.divPoints{
+  width: 70%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.divPoints:hover, button.btnPoints:hover {
   border-color: #ff0000;
   background-color: #0104054d;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   column-gap: 5px;
 }
 
-.container div {
-  padding: 0 20px;
-  align-items: center;
-  text-align: center;
+#confirmarCompra{
+  margin-top: 45px;
+  color: wheat;
+  border-color: aquamarine;
+  width: 300px;
+}
+
+.divSelecionada{
+  color: wheat;
 }

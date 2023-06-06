@@ -19,7 +19,6 @@ public class UserRepository {
     private List<User> usuariosCadastrados;
     private PreparedStatement st;
     private ResultSet rs;
-    private String sql;
 
     @Autowired
     private SkinRepository skinRepository;
@@ -31,10 +30,10 @@ public class UserRepository {
     public List<User> listUsers() {
         usuariosCadastrados.clear();
         User user;
-        sql = "SELECT * FROM user";
+        String mySql = "SELECT * FROM user";
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             rs = st.executeQuery();
             while (rs.next()) {
                 user = getUser();
@@ -91,10 +90,10 @@ public class UserRepository {
 
     public User getUserInfo(String email) {
         User user;
-        sql = "SELECT * FROM user WHERE user.email = '%s'".formatted(email);
+        String mySql = "SELECT * FROM user WHERE user.email = '%s'".formatted(email);
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             rs = st.executeQuery();
             rs.next();
             user = getUser();
@@ -110,13 +109,13 @@ public class UserRepository {
     }
 
     public User addUser(User user) {
-        sql = "INSERT INTO user(nome,pontos,email,senha,cargo) values(?,?,?,?,?)";
+        String mySql = "INSERT INTO user(nome,pontos,email,senha,cargo) values(?,?,?,?,?)";
         user.setCargo("cliente");
         user.setPontos(1000);
         Long id = 0L;
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st = conn.prepareStatement(mySql, Statement.RETURN_GENERATED_KEYS);
             st.setString(1, user.getNome());
             st.setInt(2, user.getPontos());
             st.setString(3, user.getEmail());
@@ -137,10 +136,10 @@ public class UserRepository {
     }
 
     public User updateUser(Long id, User u) {
-        sql = "UPDATE user SET nome=?, pontos=?, email=?, senha=? WHERE id=?";
+        String mySql = "UPDATE user SET nome=?, pontos=?, email=?, senha=? WHERE id=?";
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setString(1, u.getNome());
             st.setInt(2, u.getPontos());
             st.setString(3, u.getEmail());
@@ -155,10 +154,10 @@ public class UserRepository {
     }
 
     public User findById(Long id) {
-        sql = "SELECT * FROM user WHERE user.id = ?";
+        String mySql = "SELECT * FROM user WHERE user.id = ?";
         User user = new User();
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setLong(1, id);
             rs = st.executeQuery();
             if (rs.next()) {
@@ -189,10 +188,10 @@ public class UserRepository {
     }
 
     public UserSkin addSkinFromUser(Long idSkin, Long idUser) {
-        sql = "insert into skinsuser(id_user, id_skin) values(?,?)";
+        String mySql = "insert into skinsuser(id_user, id_skin) values(?,?)";
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setLong(1, idUser);
             st.setLong(2, idSkin);
             st.execute();
@@ -204,10 +203,10 @@ public class UserRepository {
     }
 
     public void deleteSkinFromUser(Skin skin, User user) {
-        sql = "delete from skinsuser where id_skin = ? and id_user= ?";
+        String mySql = "delete from skinsuser where id_skin = ? and id_user= ?";
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setLong(1, skin.getId());
             st.setLong(2,user.getId());
             st.execute();
@@ -219,11 +218,11 @@ public class UserRepository {
 
     public List<Skin> listSkinsFromUser(Long idUser) {
         User user = findById(idUser);
-        sql = "SELECT * FROM skinsuser WHERE id_user=?";
+        String mySql = "SELECT * FROM skinsuser WHERE id_user=?";
         List<Skin> skins = new ArrayList<>();
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setLong(1, user.getId());
             rs = st.executeQuery();
             while (rs.next()) {

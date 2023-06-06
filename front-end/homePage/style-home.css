@@ -299,3 +299,16 @@ footer .logo img {
     line-height: 1.8;
   }
 }
+
+.grade {
+  display: flex;
+  gap: 2rem;
+  flex: 1 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#skin-page ul {
+  list-style-type: none;
+  font-size: large;
+}

@@ -58,7 +58,7 @@ async function getUserInfo(email) {
     await response.json().then((usuario) => {
         localStorage.setItem("usuarioId", usuario.id);
     });
-    
+
 }
 
 
@@ -87,10 +87,12 @@ function addUser(nome, email, senha) {
             alertText_cad.classList.remove('invisibleText');
             alertText_cad.classList.add('alertText');
         } else {
-            addUserPersistence(data);
-            getUserInfo(email).then(() => {
-                window.location.href = "/homePage/home-page.html";
+            addUserPersistence(data).then(() => {
+                getUserInfo(email).then(() => {
+                    window.location.href = "/homePage/home-page.html";
+                });
             });
+
         }
     });
 

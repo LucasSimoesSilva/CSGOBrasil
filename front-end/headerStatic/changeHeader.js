@@ -2,6 +2,7 @@ var id = localStorage.getItem("usuarioId");
 var loginLink = document.getElementById("login");
 var skinsLink = document.getElementById("skins");
 var relatorioLink = document.getElementById("relatorio");
+var pontosLink = document.getElementById("pontos")
 var dropdowDiv = document.getElementById("dropdowDiv");
 var logout = document.getElementById("logout");
 
@@ -24,10 +25,11 @@ async function getUserById(id){
 if (id > 0) {
     loginLink.classList.add("hiddenItem");
     skinsLink.classList.remove("hiddenItem")
+    pontosLink.classList.remove("hiddenItem")
     
     var usuarioLink = document.createElement("a");
     getUserById(id).then((result) => {
-        usuarioLink.textContent = result.nome;
+        usuarioLink.textContent = result.nome + ': ' + result.pontos;
         usuarioLink.href = "#"
         cargo = result.cargo
 

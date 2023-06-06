@@ -15,7 +15,6 @@ public class SkinRepository {
 
     private PreparedStatement st;
     private ResultSet rs;
-    private String sql;
 
     public SkinRepository() {
         this.skinsCadastradas = new ArrayList<>();
@@ -24,10 +23,10 @@ public class SkinRepository {
     public List<Skin> listSkins() {
         skinsCadastradas.clear();
         Skin skin;
-        sql = "SELECT * FROM skin";
+        String mySql = "SELECT * FROM skin";
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             rs = st.executeQuery();
             while (rs.next()) {
                 skin = getSkin();
@@ -41,10 +40,10 @@ public class SkinRepository {
     }
 
     public Skin getSkinInfo(Skin skin) {
-        sql = "SELECT * FROM skin WHERE skin.id = %s".formatted(skin.getId());
+        String mySql = "SELECT * FROM skin WHERE skin.id = %s".formatted(skin.getId());
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             rs = st.executeQuery();
             Skin s = getSkin();
 
@@ -59,12 +58,12 @@ public class SkinRepository {
     }
 
     public Skin addSkin(Skin skin) {
-        sql = "INSERT INTO skin(nome,arma,preco,raridade,imagem) values(?,?,?,?,?)";
+        String mySql = "INSERT INTO skin(nome,arma,preco,raridade,imagem) values(?,?,?,?,?)";
         Long id = 0L;
 
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st = conn.prepareStatement(mySql, Statement.RETURN_GENERATED_KEYS);
             st.setString(1, skin.getNome());
             st.setString(2, skin.getArma());
             st.setInt(3, skin.getPreco());
@@ -85,10 +84,10 @@ public class SkinRepository {
     }
 
     public Skin updateSkin(Long id, Skin skin) {
-        sql = "UPDATE skin SET nome=?, arma=?, preco=?, raridade=?, imagem=? WHERE id=?";
+        String mySql = "UPDATE skin SET nome=?, arma=?, preco=?, raridade=?, imagem=? WHERE id=?";
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setString(1, skin.getNome());
             st.setString(2, skin.getArma());
             st.setInt(3, skin.getPreco());
@@ -104,14 +103,19 @@ public class SkinRepository {
     }
 
     public Skin findById(Long id) {
-        sql = "SELECT * FROM skin WHERE skin.id = ?";
-        Skin skin = null;
+        String mySql = "SELECT * FROM skin WHERE skin.id = ?";
+        Skin skin = new Skin();
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setLong(1, id);
             rs = st.executeQuery();
             if (rs.next()) {
-                skin = getSkin();
+                skin.setId(rs.getLong("id"));
+                skin.setNome(rs.getString("nome"));
+                skin.setArma(rs.getString("arma"));
+                skin.setPreco(rs.getInt("preco"));
+                skin.setRaridade(rs.getString("raridade"));
+                skin.setImagem(rs.getString("imagem"));
             }
         } catch (SQLException e) {
             System.out.println("Erro ao listar skin\n" + e);

@@ -31,29 +31,20 @@
 					</div>
 				</div>
 				<hr>
-				<br><br>
+				<br>
 				<div class="container">
-					<div class="pontos">Pontos: 0</div>
+					<div class="pontos">Pontos: <label id="pontos">0</label></div>
+					<div class="divPoints" onclick="selecionarPontos(this, 500)">500 pontos</div>
+					<br>
+					<div class="divPoints" onclick="selecionarPontos(this, 1000)">1000 pontos</div>
+					<br>
+					<div class="divPoints" onclick="selecionarPontos(this, 2000)">2000 pontos</div>
+					<br>
+					<div class="divPoints" onclick="selecionarPontos(this, 5000)">5000 pontos</div>
 					<div>
-						<button id="botao1" onclick="showConfirmationPopup(500);"> 500 pontos</button>
-					</div>
-					<br>
-					<div class="pacote">
-						<button id="botao2" onclick="showConfirmationPopup(1000);"> 1000 pontos
-						</button>
-					</div>
-					<br>
-					<div class="pacote">
-						<button id="botao3" onclick="showConfirmationPopup(2000);"> 2000 pontos
-						</button>
-					</div>
-					<br>
-					<div class="pacote">
-						<button id="botao4" onclick="showConfirmationPopup(5000);"> 5000 pontos
-						</button>
+						<button class="btnPoints" id="confirmarCompra" onclick="confirmarCompra()"> Confirmar compra</button>
 					</div>
 				</div>
-
 
 			</div>
 		</nav>

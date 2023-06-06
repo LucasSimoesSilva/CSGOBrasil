@@ -18,8 +18,7 @@
 		<!-- Card -->
 		<nav id="container_cards">
 			<div id="page-wrap">
-				<img src="https://skinlords.com/wp-content/uploads/2022/12/karambit-marble-fade-fire-and-ice-pattern-guide.jpg"
-					alt="skin">
+				<img src="" alt="skin" id="skinImage">
 			</div>
 			<div id="sidebar">
 				<div class="top_card">
@@ -33,20 +32,14 @@
 				<hr>
 				<br><br>
 				<div class="infoskin">
-					<h1>★ Karambit | Marble Fade</h1>
-					<h2>Float: 0.03450132</h2>
-					<p>Preço: <big>R$ 10.339,67</big></p>
+					<h1 id="nomeSkin"></h1>
+					<h4 id="precoSkin"></h4>
+					<h4 id="raridadeSkin"></h4>
 				</div>
-
-				<section class="destaque">
-					<div class="container">
-
-						<body>
-							<div>
-								<button id="botao1" onclick="showConfirmationPopup(500, 23.00);">COMPRAR</button>
-							</div>
-							<br>
-					</div>
+				<div>
+					<button id="comprar">COMPRAR</button>
+				</div>
+			</div>
 		</nav>
 
 
@@ -61,10 +54,6 @@
 				<h3 class="text-middle2">FORMAS DE PAGAMENTO</h3>
 			</div>
 		</div>
-
-		<!-- Linha separadora -->
-		<div class="line3"></div>
-		<div class="line4"></div>
 
 		<!-- Formas de pagamento -->
 		<div class="pagamento">
@@ -96,37 +85,7 @@
 		</div>
 	</footer>
 
-	<script src="../scriptsGerais/pontos.js"></script>
-
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
-	<script>
-		let points = 0;
-		const counterElement = document.getElementById('counter');
-
-		function showConfirmationPopup(moedas, valor) {
-			Swal.fire({
-				title: 'Confirmação de Compra',
-				text: 'Você realmente deseja comprar ' + '?',
-				icon: 'question',
-				showCancelButton: true,
-				confirmButtonText: 'Confirmar',
-				cancelButtonText: 'Cancelar'
-			}).then((result) => {
-				if (result.isConfirmed) {
-					points += moedas;
-					updateCounter();
-					console.log("Moedas adicionadas com sucesso!");
-					Swal.fire('Compra Confirmada', 'Moedas adicionadas com sucesso!', 'success');
-				} else {
-					Swal.fire('Compra Cancelada', 'A compra foi cancelada.', 'info');
-				}
-			});
-		}
-
-		function updateCounter(Pontos) {
-			counterElement.textContent = points;
-		}
-	</script>
+	<script src="compra-script.js"></script>
 </body>
 
 </html>

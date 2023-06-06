@@ -23,7 +23,6 @@ public class MovementRepository {
     List<Report> reports;
     private PreparedStatement st;
     private ResultSet rs;
-    private String sql;
 
     @Autowired
     private UserService userService;
@@ -38,10 +37,10 @@ public class MovementRepository {
     public List<Movement> listMovement() {
         movementList.clear();
         Movement movement;
-        sql = "SELECT * FROM movement";
+        String mySql = "SELECT * FROM movement";
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             rs = st.executeQuery();
             while (rs.next()) {
                 movement = getMovement();
@@ -56,10 +55,10 @@ public class MovementRepository {
     }
 
     public Movement updateM(Long id, Movement m) {
-        sql = "UPDATE movement SET id_vendedor=?, id_comprador=?, id_skin=?, estado_venda=?, pontos=? WHERE id_venda=?";
+        String mySql = "UPDATE movement SET id_vendedor=?, id_comprador=?, id_skin=?, estado_venda=?, pontos=? WHERE id_venda=?";
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setLong(1, m.getIdVendedor());
             st.setLong(2, m.getIdComprador());
             st.setLong(3, m.getIdSkin());
@@ -76,11 +75,11 @@ public class MovementRepository {
 
 
     public Movement addMovement(Movement m) {
-        sql = "INSERT INTO movement (id_vendedor,id_skin,estado_venda, pontos) values(?,?,?,?)";
+        String mySql = "INSERT INTO movement (id_vendedor,id_skin,estado_venda, pontos) values(?,?,?,?)";
         Long id = 0L;
 
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            st = conn.prepareStatement(mySql, Statement.RETURN_GENERATED_KEYS);
             st.setLong(1, m.getIdVendedor());
             st.setLong(2, m.getIdSkin());
             st.setBoolean(3, m.isEstadoVenda());
@@ -121,10 +120,10 @@ public class MovementRepository {
     }
 
     public Movement findById(Long id) {
-        sql = "SELECT * FROM movement WHERE movement.id_venda = ?";
+        String mySql = "SELECT * FROM movement WHERE movement.id_venda = ?";
         Movement movement = null;
         try (Connection conn = ConnectionJdbc.getConnection()) {
-            st = conn.prepareStatement(sql);
+            st = conn.prepareStatement(mySql);
             st.setLong(1, id);
             rs = st.executeQuery();
             if (rs.next()) {

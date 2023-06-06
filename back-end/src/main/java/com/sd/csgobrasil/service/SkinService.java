@@ -1,10 +1,13 @@
 package com.sd.csgobrasil.service;
 
+import com.sd.csgobrasil.entity.DTO.SkinMovement;
+import com.sd.csgobrasil.entity.Movement;
 import com.sd.csgobrasil.entity.Skin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sd.csgobrasil.repository.SkinRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,6 +33,22 @@ public class SkinService {
 
     public Skin findBySkinId(Long id) {
         return repository.findById(id);
+    }
+
+    public List<SkinMovement> getSkinMovements(List<Movement> movements){
+        List<SkinMovement> movementsList = new ArrayList<>();
+        for (Movement movement : movements) {
+            SkinMovement skinMovement = new SkinMovement();
+            Skin skin = findBySkinId(movement.getIdSkin());
+            skinMovement.setNome(skin.getNome());
+            skinMovement.setArma(skin.getArma());
+            skinMovement.setRaridade(skin.getRaridade());
+            skinMovement.setPreco(skin.getPreco());
+            skinMovement.setImagem(skin.getImagem());
+            skinMovement.setIdVenda(movement.getIdVenda());
+            movementsList.add(skinMovement);
+        }
+        return movementsList;
     }
 
     public void deleteSkin(Long id){
