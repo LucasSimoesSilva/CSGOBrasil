@@ -16,42 +16,43 @@ public class SkinService {
     private SkinRepository repository;
 
     public List<Skin> listSkins() {
-        return repository.listSkins();
-    }
-
-    public Skin getSkinInfo(Skin skin) {
-        return repository.getSkinInfo(skin);
+        return repository.findAll();
     }
 
     public Skin addSkin(Skin skin) {
-        return repository.addSkin(skin);
+        return repository.save(skin);
     }
 
     public Skin updateSkin(Long id, Skin skin) {
-        return repository.updateSkin(id, skin);
+        skin.setId(id);
+        return repository.save(skin);
     }
 
     public Skin findBySkinId(Long id) {
-        return repository.findById(id);
+        return repository.findById(id).orElse(new Skin());
     }
 
     public List<SkinMovement> getSkinMovements(List<Movement> movements){
         List<SkinMovement> movementsList = new ArrayList<>();
         for (Movement movement : movements) {
-            SkinMovement skinMovement = new SkinMovement();
-            Skin skin = findBySkinId(movement.getIdSkin());
-            skinMovement.setNome(skin.getNome());
-            skinMovement.setArma(skin.getArma());
-            skinMovement.setRaridade(skin.getRaridade());
-            skinMovement.setPreco(skin.getPreco());
-            skinMovement.setImagem(skin.getImagem());
-            skinMovement.setIdVenda(movement.getIdVenda());
-            movementsList.add(skinMovement);
+            if(!movement.isEstadoVenda() || movement.getIdVendedor() == 4){
+                SkinMovement skinMovement = new SkinMovement();
+                Skin skin = findBySkinId(movement.getIdSkin());
+                skinMovement.setNome(skin.getNome());
+                skinMovement.setArma(skin.getArma());
+                skinMovement.setRaridade(skin.getRaridade());
+                skinMovement.setPreco(skin.getPreco());
+                skinMovement.setImagem(skin.getImagem());
+                skinMovement.setIdVenda(movement.getIdVenda());
+                skinMovement.setIdVendedor(movement.getIdVendedor());
+                skinMovement.setEstadoVenda(movement.isEstadoVenda());
+                movementsList.add(skinMovement);
+            }
         }
         return movementsList;
     }
 
     public void deleteSkin(Long id){
-        repository.deleteSkin(id);
+        repository.deleteById(id);
     }
 }

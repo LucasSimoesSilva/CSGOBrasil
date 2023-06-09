@@ -6,6 +6,34 @@
   z-index: 11;
 }
 
+#page-content{
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+}
+
+#staticFooter {
+  width: 100%;
+  height: 303px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 1px;
+}
+
+.content {
+  margin-top: 130px;
+  padding-bottom: 350px;
+}
+
+html,
+body {
+  max-width: 100%;
+  margin: 0;
+  margin-right: 5px;
+  overflow-x: hidden;
+}
+
 .interm {
   font-family: "Lucida Console", "Courier New", monospace;
   font-size: 30px;
@@ -18,63 +46,6 @@
   margin: 5px;
   padding-top: 50px;
   padding-bottom: 10px;
-}
-
-/* Para deixar menu nav fixed sem o container (body) ficar em cima */
-.container {
-  padding-top: 150px;
-}
-
-/* Footer */
-.footer-distributed {
-  display: block;
-  background-color: #292c2f;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  font: normal 16px sans-serif;
-  padding: 45px 50px;
-  margin-top: 50px;
-}
-
-.footer-distributed .footer-left p {
-  color: #8f9296;
-  font-size: 14px;
-  margin: 0;
-}
-
-.footer-distributed .footer-right {
-  float: right;
-  margin-top: 6px;
-  max-width: 180px;
-  color: #8f9296;
-  font-size: 14px;
-  margin: 0;
-  text-align: center;
-}
-
-.logo3 img {
-  width: 90px;
-  height: 60px;
-}
-
-/* Deixando responsivo o footer */
-@media (max-width: 600px) {
-
-  .footer-distributed .footer-left,
-  .footer-distributed .footer-right {
-    text-align: center;
-  }
-
-  .footer-distributed .footer-right {
-    float: none;
-    margin: 0 auto 20px;
-  }
-
-  .footer-distributed .footer-left p.footer-links {
-    line-height: 1.8;
-  }
 }
 
 /* Cards */
@@ -95,7 +66,7 @@
   transition: 0.2s ease-in-out;
 }
 
-#skin-page ul {
+#skin-page ul, #skin-page p  {
   list-style-type: none;
   font-size: large;
 }
@@ -108,4 +79,19 @@
   box-shadow: 5px 5px 10px rgb(255, 0, 0);
   position: relative;
   top: 10px;
+}
+
+.alertText {
+  color: rgb(179, 255, 179);
+  font-style: italic;
+  position: relative;
+  right: 20px;
+  height: 20px;
+  width: 440px;
+  font-size: large;
+  padding: 17px 30px 20px 30px;
+}
+
+.invisibleText {
+  display: none;
 }

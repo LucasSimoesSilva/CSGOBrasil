@@ -1,5 +1,6 @@
 package com.sd.csgobrasil.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,33 +9,40 @@ import java.util.Objects;
 
 @Getter
 @Setter
+@Entity
 public class User{
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String nome;
     private String cargo;
     private int pontos;
+    @Column(unique = true)
     private String email;
     private String senha;
-    private List<Skin> skinsPossuidas;
 
-    public User(Long id, String nome, String senha, String email, int pontos, List<Skin> skinsPossuidas, String cargo) {
+    @OneToMany
+    private List<Skin> skinsUser;
+
+    public User(Long id, String nome, String senha, String email, int pontos, List<Skin> skinsUser, String cargo) {
         this.id = id;
         this.nome = nome;
         this.pontos = pontos;
         this.email = email;
-        this.skinsPossuidas = skinsPossuidas;
+        this.skinsUser = skinsUser;
         this.senha = senha;
         this.cargo = cargo;
     }
 
-    public User(String nome, String senha, String email, int pontos, List<Skin> skinsPossuidas, String cargo) {
+    public User(String nome, String senha, String email, int pontos, List<Skin> skinsUser, String cargo) {
         this.nome = nome;
         this.cargo = cargo;
         this.pontos = pontos;
         this.email = email;
         this.senha = senha;
-        this.skinsPossuidas = skinsPossuidas;
+        this.skinsUser = skinsUser;
     }
 
     public User(String email, String senha, int pontos, String cargo) {
@@ -82,7 +90,7 @@ public class User{
                 ", pontos=" + pontos +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
-                ", skinsPossuidas=" + skinsPossuidas +
+                ", skinsPossuidas=" + skinsUser +
                 '}';
     }
 }

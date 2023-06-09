@@ -6,14 +6,31 @@
   z-index: 11;
 }
 
+#page-content{
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+}
+
+#staticFooter {
+  width: 100%;
+  height: 303px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 1px;
+}
+
 .content {
-  /* Padding para deixar o menu de navegação fixed sem o content ficar em cima */
-  padding-top: 100px;
+  margin-top: 130px;
+  padding-bottom: 350px;
 }
 
 html,
 body {
   max-width: 100%;
+  margin: 0;
+  margin-right: 5px;
   overflow-x: hidden;
 }
 
@@ -75,12 +92,14 @@ body {
   border-top-right-radius: 5px;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .carousel-inner {
   position: relative;
   overflow: hidden;
   width: 100%;
+  height: 770px;
 }
 
 .carousel-open:checked+.carousel-item {
@@ -249,57 +268,6 @@ body {
   top: 20px;
 }
 
-/* Footer */
-.footer-distributed {
-  background-color: #292c2f;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  font: normal 16px sans-serif;
-  padding: 45px 50px;
-  margin-top: 50px;
-}
-
-.footer-distributed .footer-left p {
-  color: #8f9296;
-  font-size: 14px;
-  margin: 0;
-}
-
-.footer-distributed .footer-right {
-  float: right;
-  margin-top: 6px;
-  max-width: 180px;
-  color: #8f9296;
-  font-size: 14px;
-  margin: 0;
-  text-align: center;
-}
-
-footer .logo img {
-  width: 90px;
-  height: 60px;
-}
-
-/* Deixando responsivo o footer */
-@media (max-width: 600px) {
-
-  .footer-distributed .footer-left,
-  .footer-distributed .footer-right {
-    text-align: center;
-  }
-
-  .footer-distributed .footer-right {
-    float: none;
-    margin: 0 auto 20px;
-  }
-
-  .footer-distributed .footer-left p.footer-links {
-    line-height: 1.8;
-  }
-}
-
 .grade {
   display: flex;
   gap: 2rem;
@@ -312,3 +280,12 @@ footer .logo img {
   list-style-type: none;
   font-size: large;
 }
+
+.soldout {
+  border: 1px solid;
+  height: 300px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #7c8c9b;
+  transition: 0.2s ease-in-out;
+} 

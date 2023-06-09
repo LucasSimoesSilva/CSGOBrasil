@@ -6,59 +6,85 @@ var precoSkin = document.getElementById('precoSkin');
 var raridadeSkin = document.getElementById('raridadeSkin');
 var imagemSkin = document.getElementById('skinImage');
 var btnComprar = document.getElementById('comprar')
-var id_comprador = localStorage.getItem('usuarioId')
+var id_usuario = localStorage.getItem('usuarioId')
 
-async function getSkinById(id){
-    const response = await fetch('http://localhost:8080/skin/'+id, {
+var alertText_compra = document.getElementById('alertText_compra');
+
+async function getSkinById(id) {
+    const response = await fetch('http://localhost:8080/skin/' + id, {
         method: 'GET',
-        headers: {  
+        headers: {
             "content-type": "application/json"
         }
     });
 
     await response.json().then((result) => {
-        var nome = result.arma +' '+result.nome;
+        var nome = result.arma + ' ' + result.nome;
         completePage(nome, result.preco, result.raridade, result.imagem);
     });
 }
 
 
-async function getMovementById(id){
-    const response = await fetch('http://localhost:8080/movement/'+id, {
+async function getMovementById(id) {
+    const response = await fetch('http://localhost:8080/movement/' + id, {
         method: 'GET',
-        headers: {  
+        headers: {
             "content-type": "application/json"
         }
     });
 
     await response.json().then((result) => {
         getSkinById(result.idSkin);
+        if (result.idVendedor == id_usuario) {
+            btnComprar.disabled = true;
+            btnComprar.style.backgroundColor = 'black';
+            alertText_compra.classList.remove('invisibleText');
+            alertText_compra.classList.add('alertText');
+            alertText_compra.textContent = 'Esta skin já pertênce a você'
+        }
     });
 };
 
 getMovementById(id_venda);
 
-function completePage(nome, preco, raridade, imagem){
+function completePage(nome, preco, raridade, imagem) {
     nomeSkin.textContent = nome;
-    precoSkin.textContent = 'Preço: '+preco + ' pontos';
-    raridadeSkin.textContent = 'Raridade: '+raridade;
-    imagemSkin.src = '/skin_imagens/'+imagem;
+    precoSkin.setAttribute('preco', preco);
+    precoSkin.textContent = 'Preço: ' + preco + ' pontos';
+    raridadeSkin.textContent = 'Raridade: ' + raridade;
+    imagemSkin.src = '/skin_imagens/' + imagem;
 }
 
 
 btnComprar.addEventListener('click', () => {
     var data = {
         idVenda: id_venda,
-        idComprador: id_comprador
+        idComprador: id_usuario
     }
 
-    makeMovement(data).then((result) => {
-        if(result){
-            btnComprar.disabled = true;
-        }
-    });
+    alert('Comprar skin', 'Deseja comprar essa skin por ' + precoSkin.getAttribute('preco') + '?').then((result) => {
 
-    
+        if (result.isConfirmed) {
+            Swal.fire('Compra confirmada', 'Compra da skin realizada!.', 'success').then(() => {
+                makeMovement(data).then((result) => {
+                    alertText_compra.classList.remove('invisibleText');
+                    alertText_compra.classList.add('alertText');
+                    if (result) {
+                        btnComprar.disabled = true;
+                        btnComprar.style.backgroundColor = 'black';
+                        alertText_compra.textContent = 'Compra realizada com sucesso'
+                    } else {
+                        alertText_compra.textContent = 'Pontos insuficientes'
+                    }
+                });
+            });
+        } else {
+            Swal.fire('Ação cancelada', 'Controle da skin não realizado.', 'info');
+        }
+
+
+    })
+
 });
 
 async function makeMovement(data) {
@@ -72,4 +98,16 @@ async function makeMovement(data) {
 
     const myJson = await response.json();
     return myJson;
+}
+
+
+async function alert(title, message) {
+    return Swal.fire({
+        title: title,
+        text: message,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar'
+    });
 }

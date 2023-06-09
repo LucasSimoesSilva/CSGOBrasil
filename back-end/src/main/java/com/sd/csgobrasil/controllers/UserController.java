@@ -2,7 +2,6 @@ package com.sd.csgobrasil.controllers;
 
 import com.sd.csgobrasil.entity.DTO.UserLogin;
 import com.sd.csgobrasil.entity.DTO.UserRegister;
-import com.sd.csgobrasil.entity.Skin;
 import com.sd.csgobrasil.entity.User;
 import com.sd.csgobrasil.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,12 +50,6 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(loginUser);
     }
 
-    @GetMapping("/skins/{id}")
-    public ResponseEntity<List<Skin>> listSkinsFromUser(@PathVariable Long id){
-        List<Skin> skinsUser = service.listSkinsFromUser(id);
-        return ResponseEntity.status(HttpStatus.OK).body(skinsUser);
-    }
-
     @PostMapping
     public ResponseEntity<User> saveUser(@RequestBody User user){
         User addUser = service.addUser(user);
@@ -64,13 +57,13 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateSkin(@PathVariable Long id, @RequestBody User user){
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user){
         User userUpdated = service.updateUser(id, user);
         return ResponseEntity.status(HttpStatus.OK).body(userUpdated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteSkin(@PathVariable Long id){
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id){
         service.deleteUser(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

@@ -120,34 +120,3 @@ document.getElementById("form_login").addEventListener("submit", function (event
 
 var alertText_cad = document.getElementById('alertText_cad');
 var alertText_login = document.getElementById('alertText_login');
-
-
-// Função para ler todos os usuários da lista
-// function listUsers() {
-//     return usersList;
-// }
-
-// function getUserInfo(email) {
-//     const index = findIndexByEmail(email);
-//     const usuario = usersList[index];
-//     return usuario;
-// }
-
-// function findIndexByEmail(email) {
-//     for (let i = 0; i < usersList.length; i++) {
-//         if (usersList[i].email === email) {
-//             return i;
-//         }
-//     }
-//     return -1;
-// }
-
-// // Função para atualizar os dados de um usuário
-// function updateUser(user, nome, email, senha) {
-//     index = findIndexByEmail(user.email);
-//     const usuario = usersList[index];
-//     usuario.nome = nome;
-//     usuario.email = email;
-//     usuario.senha = senha;
-//     return true;
-// }

@@ -31,17 +31,21 @@ create table movement(
     CONSTRAINT fk_cl_skin FOREIGN KEY (id_skin) REFERENCES skin(id)
 );
 
-create table skinsuser(
+/*create table skinsuser(
     id_user int,
     id_skin int,
     CONSTRAINT fk_skin FOREIGN KEY (id_skin) REFERENCES skin(id),
     CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES user(id)
-);
+);*/
 
 /*Inserts da tabela */
 
-insert into user(nome,cargo,pontos,email,senha) values("Carlos","cliente",200,"ca@gmail","9090");
-insert into user(nome,cargo,pontos,email,senha) values("Administrador","admin",1000000000,"admin@admin.com","1090");
+insert into user(nome,cargo,pontos,email,senha) values("Carlos","cliente",200,"ca@gmail","9090"), 
+("Administrador","admin",100000,"admin@admin.com","admin");
+insert into user(id,nome,cargo,pontos,email,senha) values (3,"EstoqueDinamico","admin",100000,"estoqued@admin.com","admin"),
+(4,"EstoqueEstatico","admin",100000,"estoques@admin.com","admin");
+
+
 
 insert into skin(nome,arma,preco,raridade,imagem) values
 ('Dragon Lore', 'AWP', 10000, 'Factory New','AWP_Dragon_Lore.png'),
@@ -63,13 +67,29 @@ insert into skin(nome,arma,preco,raridade,imagem) values
 ('Decimator', 'Tec-9', 3000, 'Factory New','Tec-9_Decimator.png'),
 ('Avalanche', 'Tec-9', 2000, 'Field-Tested','Tec-9_Avalanche.png'),
 ('Vogue', 'Glock-18', 5000, 'Factory New','Glock-18_Vogue.png'),
-('Moonrise', 'Glock-18', 2000, 'Field-Tested','Glock-18_Moonrise.png');
+('Moonrise', 'Glock-18', 2000, 'Field-Tested','Glock-18_Moonrise.png'),
 
-insert into skinsuser(id_user, id_skin) values(1,1);
-insert into skinsuser(id_user, id_skin) values(1,3);
-insert into skinsuser(id_user, id_skin) values(2,4);
+("Mehndi", "P250", 2000,"Minimal Wear",'P250_Mehndi.png'),
+("Muertos", "P250", 3000,"Well-Worn",'P250_Muertos.png'),
+("Triumvirate", "Five-SeveN", 4500,"Field-Tested",'Five-SeveN_Triumvirate.png'),
+("Angry Mob", "Five-SeveN", 5000,"Well-Worn",'Five-SeveN_Angry_Mob.png'),
+("Kill Confirmed", "USP-S", 8000,"Factory New",'USP-S_Kill_Confirmed.png'),
+("The Traitor", "USP-S", 5000,"Field-Tested",'USP-S_The_Traitor.png'),
+("Fade", "R8 Revolver", 4000,"Battle-Scarred",'R8_Revolver_Fade.png'),
+("Skull Crusher", "R8 Revolver", 2000,"Well-Worn",'R8_Revolver_Skull_Crusher.png'),
+("Golden Koi", "Desert Eagle", 6000,"Battle-Scarred",'Desert_Eagle_Golden_Koi.png'),
+("Code Red", "Desert Eagle", 3000,"Field-Tested",'Desert_Eagle_Code_Red.png'),
+("Bloodsport", "MP7", 5000,"Factory New",'MP7_Bloodsport.png'),
+("Impire", "MP7", 1500,"Field-Tested",'MP7_Impire.png'),
+("Whiteout", "MP7", 2000,"Well-Worn",'MP7_Whiteout.png');
 
-insert into movement(id_vendedor,id_skin, estado_venda, pontos) values (1,3,false,7000);
+
+insert into user_skins_user(user_id, skins_user_id) values(1,1), (1,3), 
+(2,4), (2,5), (2,6), (2,7), (2,8), (2,9), (2,10),
+(3,11), (3,12), (3,13), (3,14), (3,15), (3,16), (3,17), (3,18), (3,19), (3,20),
+(4,21),(4,22),(4,23),(4,24),(4,25),(4,26),(4,27),(4,28),(4,29),(4,30),(4,31),(4,32),(4,33);
+
+insert into movement(id_vendedor,id_skin, estado_venda, pontos) values (1,3,false,7000), (1,1,false,10000), (2,4,false,6000);
 
 /*Selects das tabelas*/
 
@@ -82,16 +102,32 @@ select * from skin;
 
 select * from movement;
 
-select * from skinsuser;
-SELECT * FROM skinsuser WHERE id_user=1;
+SELECT * FROM user_skins_user WHERE id_user=1;
 
-SELECT m.id_venda,uc.nome AS nome_comprador, uv.nome AS nome_vendedor, s.nome AS nome_skin, m.pontos, m.estado_venda
+SELECT m.id_venda, uc.nome AS nome_comprador, uv.nome AS nome_vendedor, CONCAT(s.arma, ' ', s.nome) AS nome_skin, m.pontos, m.estado_venda
 FROM movement AS m
 LEFT JOIN user AS uc ON m.id_comprador = uc.id
-JOIN user AS uv ON m.id_vendedor = uv.id
+LEFT JOIN user AS uv ON m.id_vendedor = uv.id
 JOIN skin AS s ON m.id_skin = s.id
 ORDER BY m.id_venda;
 
+
+SELECT s.id AS id_skin, s.nome, s.arma, s.preco, s.raridade, s.imagem,
+    CASE
+        WHEN EXISTS (SELECT 1 FROM movement WHERE id_skin = s.id) THEN
+            CASE
+                WHEN (SELECT estado_venda FROM movement WHERE id_skin = s.id LIMIT 1) = true THEN false
+                ELSE true
+            END
+        ELSE false
+    END AS is_in_movement,
+    m.id_venda
+FROM skin s
+JOIN user_skins_user su ON s.id = su.skins_user_id
+LEFT JOIN movement m ON s.id = m.id_skin
+WHERE su.user_id = 4;
+
+select * from user_skins_user;
 
 /*Updates*/
 
@@ -100,13 +136,13 @@ update user set senha="456" where id=1;
 /*Deletes da tabela*/
 delete from skin where id=4;
 
-delete from skinsuser where id_skin = 3 and id_user=1;
+delete from user_skins_user where skins_user_id = 3 and id_user=1;
 
 delete from user where id=6;
 
 /*Drops*/
 
-drop table skinsuser;
+drop table user_skins_user;
 drop table movement;
 drop table skin;
 drop table user;

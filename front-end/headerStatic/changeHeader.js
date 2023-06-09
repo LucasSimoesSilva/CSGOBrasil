@@ -2,6 +2,7 @@ var id = localStorage.getItem("usuarioId");
 var loginLink = document.getElementById("login");
 var skinsLink = document.getElementById("skins");
 var relatorioLink = document.getElementById("relatorio");
+var aboutLink = document.getElementById('about')
 var pontosLink = document.getElementById("pontos")
 var dropdowDiv = document.getElementById("dropdowDiv");
 var logout = document.getElementById("logout");
@@ -36,6 +37,8 @@ if (id > 0) {
         if(cargo === "admin"){
             relatorioLink.classList.remove("hiddenItem");
         }
+    }).catch(() => {
+        window.parent.location.href = "/errorPage/error.html";
     })
     
     usuarioLink.classList.add("nomeUsuario");
@@ -49,5 +52,5 @@ if (id > 0) {
 logout.addEventListener('click', () => {
     localStorage.setItem("usuarioId",0);
     location.reload();
-
+    window.parent.location.href = "/homePage/home-page.html";
 })
