@@ -1,4 +1,4 @@
-# CSGOBrasil (em criação)
+# CSGOBrasil
 - Projeto para a avaliação A3 das UCs de Sistemas Distribuídos e Mobile e Usabilidade, Desenvolvimento Web, Mobile e Jogos
 
 ## Integrantes
@@ -56,4 +56,3 @@ Passos para executar o código:
 9.1 - Caso deseje fazer Login sem cadastrar um usuário no sistema, já há um usuário pré-cadastrado com o email: ca@gmail e senha: 9090
 
 10 - Usufrua do sistema!
->>>>>>> updates
