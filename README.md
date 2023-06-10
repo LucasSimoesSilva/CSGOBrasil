@@ -24,6 +24,8 @@
 
 <hr>
 
+## Como Rodar o programa
+
 *AVISO*
 Tenha certeza de utilizar as versões corretas do Java e do Node, pois há diversas funcionalidades sensíveis a versões, então é de grande importância que a configuração de versões esteja correta.
 
