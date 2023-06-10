@@ -2,59 +2,34 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSGO Brasil</title>
-    <link rel="stylesheet" type="text/css" href="style-relatorio.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSGO Brasil</title>
+  <link rel="stylesheet" type="text/css" href="style-relatorio.css">
 </head>
 
 <body>
-    <header>
-        <!-- Logo -->
-        <div class="logo">
-            <a href="/homePage/home-page.html">
-                <img src="../images/logo.png" alt="Logo">
-            </a>
-        </div>
+  <iframe src="/headerStatic/header.html" frameborder="0" id="staticHeader"></iframe>
 
-        <!-- Menu navegação -->
-        <div class="menu">
-            <nav class="navegacao">
-                <a href="/homePage/home-page.html">Home</a>
-                <a href="/cadastroPage/registro.html">Login</a>
-                <a href="/pontosPage/Pontos.html">Pontos</a>
-                <a href="/skinsPage/Skins.html">Skins</a>
-                <a href="/relatorioPage/relatorio.html" id="last-element-bar">Relatorio</a>
-            </nav>
-        </div>
-    </header>
-
+  <div id="page-content">
     <!-- Body -->
     <div class="container">
-        <div class="table-container">
-            <table class="interm">
-              <tr>
-                <th>Coluna 1</th>
-                <th>Coluna 2</th>
-                <th>Coluna 3</th>
-                <th>Coluna 4</th>
-                <th>Coluna 5</th>
-                <th>Coluna 6</th>
-              </tr>
-              <tr>
-                <td>Dado 1</td>
-                <td>Dado 2</td>
-                <td>Dado 3</td>
-                <td>Dado 4</td>
-                <td>Dado 5</td>
-                <td>Dado 6</td>
-              </tr>
-            </table>
-          </div>
-          
+      <div class="table-container">
+        <table class="interm" id="tabela">
+          <tr>
+            <th>Id da Venda</th>
+            <th>Vendedor</th>
+            <th>Comprador</th>
+            <th>Skin</th>
+            <th>Estado da venda</th>
+            <th>Valor</th>
+          </tr>
+        </table>
+      </div>
     </div>
 
+<<<<<<< HEAD
   <!-- Rodapé -->
 	<footer class="footer-distributed">
 		<div class="footer-right">
@@ -84,6 +59,12 @@
 			</p>
 		</div>
 	</footer>
+=======
+    <iframe src="/footerStatic/footerStatic.html" frameborder="0" id="staticFooter"></iframe>
+  </div>
+
+  <script src="relatorio-script.js"></script>
+>>>>>>> updates
 
 </body>
 

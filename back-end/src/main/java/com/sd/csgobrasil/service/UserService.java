@@ -1,9 +1,6 @@
 package com.sd.csgobrasil.service;
 
-import com.sd.csgobrasil.entity.DTO.UserLogin;
-import com.sd.csgobrasil.entity.DTO.UserRegister;
-import com.sd.csgobrasil.entity.DTO.UserSkin;
-import com.sd.csgobrasil.entity.Skin;
+import com.sd.csgobrasil.entity.DTO.*;
 import com.sd.csgobrasil.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,35 +11,48 @@ import java.util.List;
 @Service
 public class UserService {
 
+
     @Autowired
     private UserRepository repository;
 
-    public List<User> listUsers() {return repository.listUsers();}
 
-    public boolean checkIfUserExist(UserRegister userRegister) {
-        return repository.checkIfUserExist(userRegister);
+    @Autowired
+    private UserSkinService userSkinService;
+
+    public List<User> listUsers() {
+        List<User> users = repository.findAll();
+        return fillSkins(users);
     }
 
-    public boolean checkLoginUser(UserLogin userLogin){return repository.checkLoginUser(userLogin);}
+    private List<User> fillSkins(List<User> users){
+        for (User user : users) {
+            user.setSkinsUser(userSkinService.listSkinsFromUser(user.getId()));
+        }
+        return users;
+    }
+
+    public boolean checkIfUserExist(UserRegister userRegister) {
+        return repository.existsUserByEmailOrNome(userRegister.getEmail(), userRegister.getNome());
+    }
+
+    public boolean checkLoginUser(UserLogin userLogin){return repository.existsUserByEmailAndSenha(userLogin.getEmail(), userLogin.getSenha());}
 
     public User getUserInfo(String email){
-        return repository.getUserInfo(email);
+        return repository.findUsersByEmail(email);
     }
 
     public User addUser(User user){
-        return repository.addUser(user);
+        user.setCargo("cliente");
+        user.setPontos(1000);
+        return repository.save(user);
     }
 
-    public User updateUser(Long id, User user){return repository.updateUser(id, user);}
+    public User updateUser(Long id, User user){
+        user.setId(id);
+        return repository.save(user);}
 
-    public User findByUserId(Long id){return repository.findById(id);}
+    public User findByUserId(Long id){return repository.findById(id).orElse(new User());}
 
-    public void deleteUser(Long id){repository.deleteUser(id);}
-
-    public UserSkin addSkinFromUser(Long idSkin, Long idUser){return repository.addSkinFromUser(idSkin,idUser);}
-
-    public void deleteSkinFromUser(Skin skin, User user) {repository.deleteSkinFromUser(skin,user);}
-
-    public List<Skin> listSkinsFromUser(Long idUser){return repository.listSkinsFromUser(idUser);}
+    public void deleteUser(Long id){repository.deleteById(id);}
 
 }

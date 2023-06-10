@@ -1,20 +1,25 @@
 package com.sd.csgobrasil.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 
 @Getter
 @Setter
+@Entity
 public class Movement{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVenda;
     private Long idVendedor;
     private Long idComprador;
+
     private Long idSkin;
 
-    // O estadoVenda quando false indica que a skin foi anunciada, mas não comprada
-    // Qunado for true, os pontos serão enviados para o vendedor
+    // O estadoVenda quando false indica que a Skin foi anunciada, mas não comprada
+    // Quando for true, os pontos serão enviados para o vendedor
     private boolean estadoVenda;
     private int pontos;
 

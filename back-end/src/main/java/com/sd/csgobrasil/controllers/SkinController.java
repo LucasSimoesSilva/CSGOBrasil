@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("/skin")
 public class SkinController {
 
+
     @Autowired
     private SkinService service;
 

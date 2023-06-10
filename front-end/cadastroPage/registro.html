@@ -10,88 +10,76 @@
 </head>
 
 <body>
-  <header>
-    <!-- Logo -->
-    <div class="logo">
-      <a href="/homePage/home-page.html">
-        <img src="../images/logo.png" alt="Logo">
-      </a>
-    </div>
+  <iframe src="/headerStatic/header.html" frameborder="0" id="staticHeader"></iframe>
 
-    <!-- Menu navegação -->
-    <div class="menu">
-      <nav class="navegacao">
-        <a href="/homePage/home-page.html">Home</a>
-        <a href="/cadastroPage/registro.html">Login</a>
-        <a href="/pontosPage/Pontos.html">Pontos</a>
-        <a href="/skinsPage/Skins.html">Skins</a>
-        <a href="/relatorioPage/relatorio.html" id="last-element-bar">Relatorio</a>
+  <div id="page-content">
 
-      </nav>
-    </div>
-  </header>
+    <!-- Body -->
+    <!-- Cadastro e login -->
+    <div class="container">
+      <a class="links" id="paracadastro"></a>
+      <a class="links" id="paralogin"></a>
 
-  <!-- Body -->
-  <!-- Cadastro e login -->
-  <div class="container">
-    <a class="links" id="paracadastro"></a>
-    <a class="links" id="paralogin"></a>
-
-    <div class="content">
-      <!--FORMULÁRIO DE LOGIN-->
-      <div id="login">
-        <form method="post" id="form_login">
-          <h1>Login</h1>
-          <p>
-            <label for="email_login">Seu e-mail</label>
-            <input id="email_login" name="email_login" required="required" type="text"
-              placeholder="contato@gmail.com" />
-          </p>
-          <p>
-            <label for="senha_login">Sua senha</label>
-            <input id="senha_login" name="senha_login" required="required" type="password" placeholder="abc123" />
-          </p>
-          <p>
-            <input type="submit" value="Logar" />
+      <div class="content">
+        <!--FORMULÁRIO DE LOGIN-->
+        <div id="login">
+          <form method="post" id="form_login">
+            <h1>Login</h1>
+            <p>
+              <label for="email_login">Seu e-mail</label>
+              <input id="email_login" name="email_login" required="required" type="text"
+                placeholder="contato@gmail.com" />
+            </p>
+            <p>
+              <label for="senha_login">Sua senha</label>
+              <input id="senha_login" name="senha_login" required="required" type="password" placeholder="abc123" />
+            </p>
+            <p>
+              <input type="submit" value="Logar" />
             <p id="alertText_login" class="invisibleText">Login incorreto</p>
-          </p>
-          <p class="link">
-            Ainda não tem conta?
-            <a href="#paracadastro">Cadastre-se</a>
-          </p>
-        </form>
-      </div>
+            </p>
+            <p class="link">
+              Ainda não tem conta?
+              <a href="#paracadastro">Cadastre-se</a>
+            </p>
+          </form>
+        </div>
 
-      
 
-      <!--FORMULÁRIO DE CADASTRO-->
-      <div id="cadastro">
-        <form method="post" id="form_cad">
-          <h1>Cadastro</h1>
-          <p>
-            <label for="nome_cad">Seu nome</label>
-            <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Gustavo Almeida" />
-          </p>
-          <p>
-            <label for="email_cad">Seu e-mail</label>
-            <input id="email_cad" name="email_cad" required="required" type="email" placeholder="contato@gmail.com" />
-          </p>
-          <p>
-            <label for="senha_cad">Sua senha</label>
-            <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="abc123" />
-          </p>
-          <p>
-            <input type="submit" value="Cadastrar" />
+
+        <!--FORMULÁRIO DE CADASTRO-->
+        <div id="cadastro">
+          <form method="post" id="form_cad">
+            <h1>Cadastro</h1>
+            <p>
+              <label for="nome_cad">Seu nome</label>
+              <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Gustavo Almeida" />
+            </p>
+            <p>
+              <label for="email_cad">Seu e-mail</label>
+              <input id="email_cad" name="email_cad" required="required" type="email" placeholder="contato@gmail.com" />
+            </p>
+            <p>
+              <label for="senha_cad">Sua senha</label>
+              <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="abc123" />
+            </p>
+            <p>
+              <input type="submit" value="Cadastrar" />
             <p id="alertText_cad" class="invisibleText">Usuário já existe</p>
-          </p>
-          <p class="link">
-            Já tem conta?
-            <a href="#paralogin"> Ir para Login </a>
-          </p>
-        </form>
+            </p>
+            <p class="link">
+              Já tem conta?
+              <a href="#paralogin"> Ir para Login </a>
+            </p>
+          </form>
+        </div>
       </div>
+
+      <iframe src="/footerStatic/footerStatic.html" frameborder="0" id="staticFooter"></iframe>
+
     </div>
 
+<<<<<<< HEAD
     <!-- Rodapé -->
 	<footer class="footer-distributed">
 		<div class="footer-right">
@@ -121,6 +109,8 @@
 			</p>
 		</div>
 	</footer>
+=======
+>>>>>>> updates
 
     <script src="script-cadastro.js"></script>
 

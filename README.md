@@ -1,15 +1,59 @@
 # CSGOBrasil (em criação)
 - Projeto para a avaliação A3 das UCs de Sistemas Distribuídos e Mobile e Usabilidade, Desenvolvimento Web, Mobile e Jogos
 
+## Integrantes
+- Andy Hyong Tae Choi Youn | RA: 12522142446
+- Felipe Daura | RA: 1252214120
+- Giovanni Lopes Campos | RA: 12522149685
+- Lucas Simões Carvalho da Silva | RA: 12522161179
+- Marcelo Henrique da Silva Ventura | RA: 12522128126
+
 ## Back-end
-- Linguagem: Java JDK 11
+- Linguagem: Java JDK 17.0.3.1
 - IDE: IntelliJ IDEA Communit Edition 2022.2.3
 - Tecnlogia utilizada: REST API
 - Banco de dados: MySQL
+- Interface usada para aplicação de scripts mysql: MySQL Workbench 8.0
 
 
 ## Front-end
 - Linguagem: JavaScript
 - IDE: Visual Studio Code 1.78.2
+<<<<<<< HEAD
 - Linguagens auxiliares: HTML, CSS
 - Tecnologias auxiliares: Node.js v18.14.2
+=======
+- Linguagens auxiliares: HTML5, CSS3
+- Tecnologias auxiliares: Node.js v18.14.2
+
+<hr>
+
+## Como Rodar o programa
+
+*AVISO*
+Tenha certeza de utilizar as versões corretas do Java e do Node, pois há diversas funcionalidades sensíveis a versões, então é de grande importância que a configuração de versões esteja correta.
+
+Passos para executar o código:
+
+1 - Clone o repositório https://github.com/LucasSimoesSilva/CSGOBrasil/tree/main;
+
+2 - Abra a pasta back-end em uma IDE que aceite a linguagem Java;
+
+3 - Abra a pasta front-end em uma outra IDE (recomendado: Visual Studio Code);
+
+4 - Execute em uma IDE que tenha suporte para a linguagem mysql o script 'sql-executar.sql' na pasta 'sql-scripts';(recomendado: MySQL Workbench 8.0 ou DBeaver Community)
+
+5 - Dentro da pasta back-end através da IDE, ajuste no arquivo src/main/resources/application.properties e na classe src/main/java/com/sd/csgobrasil/conn/ConnectionJdbc.java os atributos url, username e password de forma com que correspondam com as configurações de seu sistema para banco de dados;
+
+6 - Inicialize através da IDE a classe em Java src/main/java/com/sd/csgobrasil/CsgobrasilApplication.java;
+
+7 - Após finalizar por completo o passo anterior, vá para a IDE que está com a pasta front-end aberta e execute o comando http-server no terminal na respectiva pasta do diretório ./front-end
+
+8 - Veja no terminal em qual URL o servidor está disponível, caso haja algum erro para abrir o servidor na porta padrão, execute novamente o comando, porém com a seguinte alteração:http-server -p 'porta desejada'
+
+9 - Abra em seu navegador favorito a a seguinte URL:http://127.0.0.1:'porta em que o servidor foi aberto'/homePage/home-page.html
+
+9.1 - Caso deseje fazer Login sem cadastrar um usuário no sistema, já há um usuário pré-cadastrado com o email: ca@gmail e senha: 9090
+
+10 - Usufrua do sistema!
+>>>>>>> updates

@@ -2,8 +2,10 @@ package com.sd.csgobrasil.controllers;
 
 import com.sd.csgobrasil.entity.DTO.MovementsId;
 import com.sd.csgobrasil.entity.DTO.Report;
+import com.sd.csgobrasil.entity.DTO.SkinMovement;
 import com.sd.csgobrasil.entity.Movement;
 import com.sd.csgobrasil.service.MovementService;
+import com.sd.csgobrasil.service.SkinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +20,20 @@ public class MovementController {
     @Autowired
     private MovementService service;
 
+    @Autowired
+    private SkinService skinService;
+
     @GetMapping("/movements")
     public ResponseEntity<List<Movement>> listMovement(){
         List<Movement> movements = service.listMovement();
         return ResponseEntity.status(HttpStatus.OK).body(movements);
+    }
+
+    @GetMapping("/skinMovements")
+    public ResponseEntity<List<SkinMovement>> listMovementSkin(){
+        List<Movement> movements = service.listMovement();
+        List<SkinMovement> skinMovements = skinService.getSkinMovements(movements);
+        return ResponseEntity.status(HttpStatus.OK).body(skinMovements);
     }
 
     @PostMapping
