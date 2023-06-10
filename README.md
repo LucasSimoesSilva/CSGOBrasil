@@ -19,10 +19,8 @@
 ## Front-end
 - Linguagem: JavaScript
 - IDE: Visual Studio Code 1.78.2
-<<<<<<< HEAD
 - Linguagens auxiliares: HTML, CSS
 - Tecnologias auxiliares: Node.js v18.14.2
-=======
 - Linguagens auxiliares: HTML5, CSS3
 - Tecnologias auxiliares: Node.js v18.14.2
 
