@@ -1,44 +1,53 @@
 create database csgo;
 use csgo;
 
-create table skin(
-    id int primary key auto_increment,
-    nome varchar(200),
-    arma varchar(100),
-    preco int,
-    raridade varchar(100),
-    imagem varchar(100)
+/*CRIAÇAO DAS TABELAS*/
+
+CREATE TABLE `user` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `cargo` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `pontos` int NOT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_ob8kqyqqgmefl0aco34akdtpe` (`email`),
+  UNIQUE KEY `UK_roaq6sjqx87h4xweikt9uldf5` (`nome`)
+) ;
+
+CREATE TABLE `skin` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `arma` varchar(255) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `preco` int NOT NULL,
+  `raridade` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 
-create table user(
-    id int primary key auto_increment,
-    nome varchar(200) unique,
-    cargo varchar(50),
-    pontos int,
-    email varchar(100) unique,
-    senha varchar(100)
+CREATE TABLE `movement` (
+  `id_venda` bigint NOT NULL AUTO_INCREMENT,
+  `estado_venda` bit(1) NOT NULL,
+  `id_comprador` bigint DEFAULT NULL,
+  `id_skin` bigint DEFAULT NULL,
+  `id_vendedor` bigint DEFAULT NULL,
+  `pontos` int NOT NULL,
+  PRIMARY KEY (`id_venda`)
 );
 
-create table movement(
-    id_venda int primary key auto_increment,
-    id_vendedor int,
-    id_comprador int,
-    id_skin int,
-    estado_venda tinyint,
-    pontos int,
-    CONSTRAINT fk_cl_vendedor FOREIGN KEY (id_vendedor) REFERENCES user(id),
-    CONSTRAINT fk_cl_comprador FOREIGN KEY (id_comprador) REFERENCES user(id),
-    CONSTRAINT fk_cl_skin FOREIGN KEY (id_skin) REFERENCES skin(id)
+CREATE TABLE user_skins_user (
+  user_id bigint NOT NULL,
+  skins_user_id bigint NOT NULL,
+  UNIQUE KEY UK_cvw1j99vgmttg3mmmyvwky5e (skins_user_id),
+  KEY FKlxfrcbbvremrtl9ld2m73wh1 (user_id),
+  CONSTRAINT FKlneol2lrhckkysy0d6rhkyc8v FOREIGN KEY (skins_user_id) REFERENCES skin (id),
+  CONSTRAINT FKlxfrcbbvremrtl9ld2m73wh1 FOREIGN KEY (user_id) REFERENCES user (id)
 );
 
-/*create table skinsuser(
-    id_user int,
-    id_skin int,
-    CONSTRAINT fk_skin FOREIGN KEY (id_skin) REFERENCES skin(id),
-    CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES user(id)
-);*/
 
-/*Inserts da tabela */
+
+/*INSERTS*/
+
 
 insert into user(nome,cargo,pontos,email,senha) values("Carlos","cliente",200,"ca@gmail","9090"), 
 ("Administrador","admin",100000,"admin@admin.com","admin");
@@ -90,59 +99,3 @@ insert into user_skins_user(user_id, skins_user_id) values(1,1), (1,3),
 (4,21),(4,22),(4,23),(4,24),(4,25),(4,26),(4,27),(4,28),(4,29),(4,30),(4,31),(4,32),(4,33);
 
 insert into movement(id_vendedor,id_skin, estado_venda, pontos) values (1,3,false,7000), (1,1,false,10000), (2,4,false,6000);
-
-/*Selects das tabelas*/
-
-select * from user;
-select * from user where user.id = 2;
-select * from user where email="lalala";
-select * from user where email="ca@gmail" or nome="Lucas";
-
-select * from skin;
-
-select * from movement;
-
-SELECT * FROM user_skins_user WHERE id_user=1;
-
-SELECT m.id_venda, uc.nome AS nome_comprador, uv.nome AS nome_vendedor, CONCAT(s.arma, ' ', s.nome) AS nome_skin, m.pontos, m.estado_venda
-FROM movement AS m
-LEFT JOIN user AS uc ON m.id_comprador = uc.id
-LEFT JOIN user AS uv ON m.id_vendedor = uv.id
-JOIN skin AS s ON m.id_skin = s.id
-ORDER BY m.id_venda;
-
-
-SELECT s.id AS id_skin, s.nome, s.arma, s.preco, s.raridade, s.imagem,
-    CASE
-        WHEN EXISTS (SELECT 1 FROM movement WHERE id_skin = s.id) THEN
-            CASE
-                WHEN (SELECT estado_venda FROM movement WHERE id_skin = s.id LIMIT 1) = true THEN false
-                ELSE true
-            END
-        ELSE false
-    END AS is_in_movement,
-    m.id_venda
-FROM skin s
-JOIN user_skins_user su ON s.id = su.skins_user_id
-LEFT JOIN movement m ON s.id = m.id_skin
-WHERE su.user_id = 4;
-
-select * from user_skins_user;
-
-/*Updates*/
-
-update user set senha="456" where id=1;
-
-/*Deletes da tabela*/
-delete from skin where id=4;
-
-delete from user_skins_user where skins_user_id = 3 and id_user=1;
-
-delete from user where id=6;
-
-/*Drops*/
-
-drop table user_skins_user;
-drop table movement;
-drop table skin;
-drop table user;

@@ -19,22 +19,21 @@ public class UserSkinRepository {
     private ResultSet rs;
 
     public List<SkinWithState> listSkinsWithStateFromUser(Long idUser) {
-        String mySql = """
-                SELECT s.id AS id_skin, s.nome, s.arma, s.preco, s.raridade, s.imagem,
-                                    CASE
-                                        WHEN EXISTS (SELECT 1 FROM movement WHERE id_skin = s.id) THEN
-                                            CASE
-                                                WHEN (SELECT estado_venda FROM movement WHERE id_skin = s.id LIMIT 1) = true THEN false
-                                                ELSE true
-                                            END
-                                        ELSE false
-                                    END AS is_in_movement,
-                                    m.id_venda
-                                FROM skin s
-                                JOIN user_skins_user su ON s.id = su.skins_user_id
-                                LEFT JOIN movement m ON s.id = m.id_skin
-                                WHERE su.user_id = ?
-                                """;
+        String mySql =
+                "SELECT s.id AS id_skin, s.nome, s.arma, s.preco, s.raridade, s.imagem, " +
+                        "CASE " +
+                        "WHEN EXISTS (SELECT 1 FROM movement WHERE id_skin = s.id) THEN " +
+                        "CASE " +
+                        "WHEN (SELECT estado_venda FROM movement WHERE id_skin = s.id LIMIT 1) = true THEN false " +
+                        "ELSE true " +
+                        "END " +
+                        "ELSE false " +
+                        "END AS is_in_movement, " +
+                        "m.id_venda " +
+                        "FROM skin s " +
+                        "JOIN user_skins_user su ON s.id = su.skins_user_id " +
+                        "LEFT JOIN movement m ON s.id = m.id_skin " +
+                        "WHERE su.user_id = ?";
         List<SkinWithState> skins = new ArrayList<>();
 
         try (Connection conn = ConnectionJdbc.getConnection()) {

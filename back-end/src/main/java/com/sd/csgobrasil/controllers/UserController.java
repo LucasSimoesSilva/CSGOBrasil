@@ -15,9 +15,9 @@ import java.util.List;
 @RequestMapping(value = "/user")
 public class UserController {
 
+
     @Autowired
     private UserService service;
-
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> listUsers(){

@@ -43,8 +43,13 @@ function showFixedSkins(id_venda, nome_skin, arma_skin, imagem_skin, preco_skin,
         divItem.setAttribute('data-id', id_venda);
 
         divItem.addEventListener('click', () => {
-            const idVenda = divItem.getAttribute('data-id');
-            window.location.href = `/skinCompra/compra.html?id=${encodeURIComponent(idVenda)}`;
+
+            if (idUsuario != 0) {
+                const idVenda = divItem.getAttribute('data-id');
+                window.location.href = `/skinCompra/compra.html?id=${encodeURIComponent(idVenda)}`;
+            }
+
+
         });
     }
 
@@ -139,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
 var carrouselItem = document.querySelectorAll('.carousel-item');
 var contador = 1
 
-function preencherCarrousel() {
+function preencherSlider() {
     carrouselItem.forEach((item) => {
         if (contador <= carrouselItem.length) {
             var img = item.querySelector('img');
@@ -149,12 +154,10 @@ function preencherCarrousel() {
     })
 }
 
-preencherCarrousel();
+preencherSlider();
 
-// Variável global para armazenar o identificador do intervalo
 var carouselInterval;
 
-// Função para fazer o carrossel avançar automaticamente
 function autoCarousel() {
     var radios = document.getElementsByClassName('carousel-open');
     var length = radios.length;
@@ -179,5 +182,14 @@ for (var i = 0; i < carouselControls.length; i++) {
     carouselControls[i].addEventListener('click', resetInterval);
 }
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (idUsuario == 0) {
+        Swal.fire('NOVOS USUÁRIOS RECEBEM 1000 PONTOS AO SE CADASTRAR.', '', 'info');
+    }
+});
+
+
 // Chama a função para iniciar o carrossel automático
 autoCarousel();
+var idUsuario = localStorage.getItem('usuarioId');

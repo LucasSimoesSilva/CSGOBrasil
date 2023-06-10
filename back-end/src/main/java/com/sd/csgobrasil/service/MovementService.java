@@ -13,14 +13,19 @@ import java.util.Objects;
 
 @Service
 public class MovementService {
+
+
     @Autowired
     private MovementRepository repository;
+
 
     @Autowired
     private UserService userService;
 
+
     @Autowired
     private SkinService skinService;
+
 
     @Autowired
     private UserSkinService userSkinService;

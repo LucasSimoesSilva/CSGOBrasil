@@ -1,28 +1,13 @@
-# CSGOBrasil
-- Projeto para a avaliação A3 das UCs de Sistemas Distribuídos e Mobile e Usabilidade, Desenvolvimento Web, Mobile e Jogos
-
-## Integrantes
-- Andy Hyong Tae Choi Youn | RA: 12522142446
-- Felipe Daura | RA: 1252214120
-- Giovanni Lopes Campos | RA: 12522149685
-- Lucas Simões Carvalho da Silva | RA: 12522161179
-- Marcelo Henrique da Silva Ventura | RA: 12522128126
-
-## Back-end
-- Linguagem: Java JDK 17.0.3.1
-- IDE: IntelliJ IDEA Communit Edition 2022.2.3
-- Tecnlogia utilizada: REST API
-- Banco de dados: MySQL
-- Interface usada para aplicação de scripts mysql: MySQL Workbench 8.0
-
-
-## Front-end
-- Linguagem: JavaScript
-- IDE: Visual Studio Code 1.78.2
-- Linguagens auxiliares: HTML5, CSS3
-- Tecnologias auxiliares: Node.js v18.14.2
-
-<hr>
+Tecnologias utilizadas:
+Para diagramas: Drawio e StarUML
+Linguagem: Java JDK 17.0.3.1
+IDE: IntelliJ IDEA Communit Edition 2022.2.3
+Banco de dados utilizado: MySQL
+Interface usada para aplicação de scripts mysql: MySQL Workbench 8.0
+Linguagem: JavaScript
+IDE: Visual Studio Code 1.78.2
+Linguagens auxiliares: HTML5, CSS3
+Tecnologias auxiliares: Node.js v18.14.2
 
 *AVISO*
 Tenha certeza de utilizar as versões corretas do Java e do Node, pois há diversas funcionalidades sensíveis a versões, então é de grande importância que a configuração de versões esteja correta.

@@ -12,6 +12,7 @@ import java.util.List;
 
 @Service
 public class SkinService {
+
     @Autowired
     private SkinRepository repository;
 

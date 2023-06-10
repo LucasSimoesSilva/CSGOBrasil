@@ -18,7 +18,7 @@ public class Movement{
 
     private Long idSkin;
 
-    // O estadoVenda quando false indica que a skin foi anunciada, mas não comprada
+    // O estadoVenda quando false indica que a Skin foi anunciada, mas não comprada
     // Quando for true, os pontos serão enviados para o vendedor
     private boolean estadoVenda;
     private int pontos;

@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping(value = "/userskin")
 public class UserSkinController {
 
+
     @Autowired
     UserSkinService service;
 
