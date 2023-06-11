@@ -14,10 +14,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/skin/skins",
+							"raw": "http://localhost:8080/skin/skins",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"skin",
 								"skins"
@@ -32,10 +34,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/skin/1",
+							"raw": "http://localhost:8080/skin/1",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"skin",
 								"1"
@@ -59,10 +63,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/skin",
+							"raw": "http://localhost:8080/skin",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"skin"
 							]
@@ -85,10 +91,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/skin/2",
+							"raw": "http://localhost:8080/skin/2",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"skin",
 								"2"
@@ -103,10 +111,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/skin/2",
+							"raw": "http://localhost:8080/skin/2",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"skin",
 								"2"
@@ -126,10 +136,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/user/users",
+							"raw": "http://localhost:8080/user/users",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"user",
 								"users"
@@ -144,10 +156,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/user/2",
+							"raw": "http://localhost:8080/user/2",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"user",
 								"2"
@@ -171,10 +185,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/user",
+							"raw": "http://localhost:8080/user",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"user"
 							]
@@ -197,10 +213,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/user/4",
+							"raw": "http://localhost:8080/user/4",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"user",
 								"4"
@@ -215,10 +233,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/user/4",
+							"raw": "http://localhost:8080/user/4",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"user",
 								"4"
@@ -242,10 +262,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/user/login",
+							"raw": "http://localhost:8080/user/login",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"user",
 								"login"
@@ -269,10 +291,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/user/register",
+							"raw": "http://localhost:8080/user/register",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"user",
 								"register"
@@ -296,10 +320,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/user/info",
+							"raw": "http://localhost:8080/user/info",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"user",
 								"info"
@@ -319,10 +345,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/movement/movements",
+							"raw": "http://localhost:8080/movement/movements",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"movement",
 								"movements"
@@ -346,10 +374,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/movement",
+							"raw": "http://localhost:8080/movement",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"movement"
 							]
@@ -375,10 +405,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/movement/53",
+							"raw": "http://localhost:8080/movement/53",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"movement",
 								"53"
@@ -402,10 +434,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/movement",
+							"raw": "http://localhost:8080/movement",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"movement"
 							]
@@ -419,10 +453,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/movement/52",
+							"raw": "http://localhost:8080/movement/52",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"movement",
 								"52"
@@ -437,10 +473,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/movement/report",
+							"raw": "http://localhost:8080/movement/report",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"movement",
 								"report"
@@ -455,10 +493,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/movement/skinMovements",
+							"raw": "http://localhost:8080/movement/skinMovements",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"movement",
 								"skinMovements"
@@ -487,10 +527,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/userskin/add",
+							"raw": "http://localhost:8080/userskin/add",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"userskin",
 								"add"
@@ -505,10 +547,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/userskin/skinsState/1",
+							"raw": "http://localhost:8080/userskin/skinsState/1",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"userskin",
 								"skinsState",
@@ -524,10 +568,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/userskin/1",
+							"raw": "http://localhost:8080/userskin/1",
+							"protocol": "http",
 							"host": [
-								"{{localUrl}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"userskin",
 								"1"
