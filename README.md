@@ -58,7 +58,7 @@ Passos para executar o código:
 
 8 - Veja no terminal em qual URL o servidor está disponível, caso haja algum erro para abrir o servidor na porta padrão, execute novamente o comando, porém com a seguinte alteração:http-server -p 'porta desejada'. Exemplo:http-server -p 5500
 
-9 - Abra em seu navegador favorito a seguinte URL: "http://192.168.56.1: 'porta do servidor' /homePage/home-page.html". Exemplo:http://192.168.56.1:8081/homePage/home-page.html
+9 - Abra em seu navegador favorito a seguinte URL: "http://192.168.56.1: 'porta do servidor' /homePage/home-page.html". Exemplo:http://192.168.56.1:8081/homePage/home-page.html<br>
     - Caso você possua o plugin Live Server em seu Visual Studio Code, você pode utilizar esta extensão para inicializar o server.
 
 Extra - Caso deseje fazer Login sem cadastrar um usuário no sistema, já há um usuário pré-cadastrado com o email:ca@gmail e senha:9090 e um usuário administrado, email:admin@admin.com e senha:admin
