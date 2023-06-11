@@ -44,9 +44,11 @@ function showFixedSkins(id_venda, nome_skin, arma_skin, imagem_skin, preco_skin,
 
         divItem.addEventListener('click', () => {
 
-            if (idUsuario != 0) {
+            if (idUsuario != 0 && idUsuario > 0) {
                 const idVenda = divItem.getAttribute('data-id');
                 window.location.href = `/skinCompra/compra.html?id=${encodeURIComponent(idVenda)}`;
+            } else {
+                Swal.fire('Faça login para poder comprar uma skin.', '', 'info');
             }
 
 
@@ -90,8 +92,12 @@ function showDynamicSkins(id_venda, nome_skin, arma_skin, imagem_skin, preco_ski
     divItem.setAttribute('data-id', id_venda);
 
     divItem.addEventListener('click', () => {
-        const idVenda = divItem.getAttribute('data-id');
-        window.location.href = `/skinCompra/compra.html?id=${encodeURIComponent(idVenda)}`;
+        if (idUsuario != 0 && idUsuario > 0) {
+            const idVenda = divItem.getAttribute('data-id');
+            window.location.href = `/skinCompra/compra.html?id=${encodeURIComponent(idVenda)}`;
+        } else {
+            Swal.fire('Faça login para poder comprar uma skin.', '', 'info');
+        }
     });
 
 
@@ -182,14 +188,17 @@ for (var i = 0; i < carouselControls.length; i++) {
     carouselControls[i].addEventListener('click', resetInterval);
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
     if (idUsuario == 0) {
         Swal.fire('NOVOS USUÁRIOS RECEBEM 1000 PONTOS AO SE CADASTRAR.', '', 'info');
     }
 });
 
-
 // Chama a função para iniciar o carrossel automático
 autoCarousel();
+
+if (!localStorage.getItem('usuarioId')) {
+    localStorage.setItem('usuarioId', 0);
+    location.reload();
+}
 var idUsuario = localStorage.getItem('usuarioId');
