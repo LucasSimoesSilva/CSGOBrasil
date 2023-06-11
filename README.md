@@ -30,9 +30,12 @@
 ### Requisitos obrigatórios para executar a aplicação
 - Java JDK 17.0.3.1; Link:https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
 - Node versão 18; Link:https://nodejs.org
-- MySQL server(caso não possua): https://dev.mysql.com/downloads/mysql/
+- MySQL server(caso não possua):
+    - Para Windows recomendamos:https://dev.mysql.com/downloads/installer/; (Sua instalação já contém o MySQL Workbench);
+    - Para Linux: https://dev.mysql.com/downloads/mysql/ (este é apenas o server)
+        - Documentação de sistemas operacionais: https://dev.mysql.com/doc/refman/8.0/en/linux-installation.html
 - IDE de manutenção de banco de dados e execução de scripts (caso não possua):
-    - MySQL Workbench: https://dev.mysql.com/downloads/workbench/
+    - MySQL Workbench: https://dev.mysql.com/downloads/workbench/ (para Linux)
     - Dbeaver: https://dbeaver.io/download/
 
 <hr>
