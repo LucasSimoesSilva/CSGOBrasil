@@ -27,8 +27,19 @@
 <hr>
 
 ## Como Rodar o programa
+<br>
 
-*AVISO*
+### Requisitos obrigatórios para executar a aplicação
+- Java JDK 17.0.3.1; Link:https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+- Node versão 18; Link:https://nodejs.org
+- MySQL server(caso não possua): https://dev.mysql.com/downloads/mysql/
+- IDE de manipulação de script(caso não possua):
+    - MySQL Workbench: https://dev.mysql.com/downloads/workbench/
+    - Dbeaver: https://dbeaver.io/download/
+
+<hr>
+
+*AVISO*<br>
 Tenha certeza de utilizar as versões corretas do Java e do Node, pois há diversas funcionalidades sensíveis a versões, então é de grande importância que a configuração de versões esteja correta.
 
 Passos para executar o código:
@@ -39,17 +50,17 @@ Passos para executar o código:
 
 3 - Abra a pasta front-end em uma outra IDE (recomendado: Visual Studio Code);
 
-4 - Execute em uma IDE que tenha suporte para a linguagem mysql o script 'sql-executar.sql' na pasta 'sql-scripts';(recomendado: MySQL Workbench 8.0 ou DBeaver Community)
+4 - Execute em uma IDE que tenha suporte para a linguagem mysql o script 'sql-executar.sql' da pasta 'sql-scripts';(recomendado: MySQL Workbench 8.0 ou DBeaver Community)
 
 5 - Dentro da pasta back-end através da IDE, ajuste no arquivo src/main/resources/application.properties e na classe src/main/java/com/sd/csgobrasil/conn/ConnectionJdbc.java os atributos url, username e password de forma com que correspondam com as configurações de seu sistema para banco de dados;
 
 6 - Inicialize através da IDE a classe em Java src/main/java/com/sd/csgobrasil/CsgobrasilApplication.java;
 
-7 - Após finalizar por completo o passo anterior, vá para a IDE que está com a pasta front-end aberta e execute o comando http-server no terminal na respectiva pasta do diretório ./front-end
+7 - Após finalizar por completo o passo anterior, vá para a IDE que está com a pasta front-end aberta e execute o comando: npm install -g http-server e logo após o comando http-server no terminal na respectiva pasta do diretório ./front-end
 
-8 - Veja no terminal em qual URL o servidor está disponível, caso haja algum erro para abrir o servidor na porta padrão, execute novamente o comando, porém com a seguinte alteração:http-server -p 'porta desejada'
+8 - Veja no terminal em qual URL o servidor está disponível, caso haja algum erro para abrir o servidor na porta padrão, execute novamente o comando, porém com a seguinte alteração:http-server -p 'porta desejada'. Exemplo:http-server -p 5500
 
-9 - Abra em seu navegador favorito a a seguinte URL:http://127.0.0.1:'porta em que o servidor foi aberto'/homePage/home-page.html
+9 - Abra em seu navegador favorito a seguinte URL: "http://127.0.0.1: 'porta do servidor' /homePage/home-page.html". Exemplo:http://127.0.0.1:5500/homePage/home-page.html
 
 9.1 - Caso deseje fazer Login sem cadastrar um usuário no sistema, já há um usuário pré-cadastrado com o email: ca@gmail e senha: 9090
 
