@@ -19,8 +19,6 @@
 ## Front-end
 - Linguagem: JavaScript
 - IDE: Visual Studio Code 1.78.2
-- Linguagens auxiliares: HTML, CSS
-- Tecnologias auxiliares: Node.js v18.14.2
 - Linguagens auxiliares: HTML5, CSS3
 - Tecnologias auxiliares: Node.js v18.14.2
 
@@ -33,7 +31,7 @@
 - Java JDK 17.0.3.1; Link:https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
 - Node versão 18; Link:https://nodejs.org
 - MySQL server(caso não possua): https://dev.mysql.com/downloads/mysql/
-- IDE de manipulação de script(caso não possua):
+- IDE de manutenção de banco de dados e execução de scripts (caso não possua):
     - MySQL Workbench: https://dev.mysql.com/downloads/workbench/
     - Dbeaver: https://dbeaver.io/download/
 
