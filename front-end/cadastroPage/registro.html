@@ -23,7 +23,7 @@
       <div class="content">
         <!--FORMULÁRIO DE LOGIN-->
         <div id="login">
-          <form method="post" id="form_login">
+          <form method="post" id="form_login" required="required">
             <h1>Login</h1>
             <p>
               <label for="email_login">Seu e-mail</label>
@@ -32,7 +32,7 @@
             </p>
             <p>
               <label for="senha_login">Sua senha</label>
-              <input id="senha_login" name="senha_login" required="required" type="password" placeholder="abc123" />
+              <input id="senha_login" name="senha_login" required="required" type="password" placeholder="abc123" minlength="4"/>
             </p>
             <p>
               <input type="submit" value="Logar" />

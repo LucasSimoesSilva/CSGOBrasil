@@ -133,6 +133,8 @@ async function getAllMovementsSkins() {
         headers: {
             "content-type": "application/json"
         }
+    }).catch(() => {
+        window.parent.location.href = "/errorPage/error.html";
     });
 
     const myJson = await response.json();

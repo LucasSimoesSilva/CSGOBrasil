@@ -5,6 +5,8 @@ async function checkIfExist(data) {
             "content-type": "application/json"
         },
         body: JSON.stringify(data)
+    }).catch(() => {
+        window.parent.location.href = "/errorPage/error.html";
     });
 
 
@@ -19,6 +21,8 @@ async function checkLogin(data) {
             "content-type": "application/json"
         },
         body: JSON.stringify(data)
+    }).catch(() => {
+        window.parent.location.href = "/errorPage/error.html";
     });
 
     const myJson = await response.json();
@@ -41,7 +45,7 @@ async function makeLogin(email, senha) {
             alertText_login.classList.remove('invisibleText');
             alertText_login.classList.add('alertText');
         }
-    });
+    })
 }
 
 
@@ -94,6 +98,8 @@ function addUser(nome, email, senha) {
             });
 
         }
+    }).catch(() => {
+        window.parent.location.href = "/errorPage/error.html";
     });
 
 
