@@ -34,21 +34,8 @@ body {
   overflow-x: hidden;
 }
 
+
 .interm {
-  font-family: "Lucida Console", "Courier New", monospace;
-  font-size: 30px;
-  text-align: center;
-  margin-bottom: 5px;
-  margin-top: 35px;
-}
-
-.text-middle {
-  margin: 5px;
-  padding-top: 50px;
-  padding-bottom: 10px;
-}
-
-.interm2 {
   width: 100%;
   height: 70px;
   font-family: "Lucida Console", "Courier New", monospace;
@@ -58,7 +45,7 @@ body {
   margin-top: 35px;
 }
 
-.text-middle2 {
+.text-middle {
   margin: 5px;
   padding-top: 50px;
   padding-bottom: 10px;
@@ -91,37 +78,11 @@ body {
   margin-top: 0;
 }
 
-.line3 {
-  position: absolute;
-  z-index: 10;
-  margin-right: auto;
-  margin-left: auto;
-  width: 40%;
-  /*  text-align: center; */
-  padding: 1px;
-  /* border-bottom: 1px solid #000000; */
-  margin-bottom: 50px;
-  margin-top: 70px;
-  display: block;
-  margin-left: 30%;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-}
-
-.line4 {
-  position: relative;
-  width: 100%;
-  padding-top: 75px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #cccccc00;
-  margin-bottom: 50px;
-  margin-top: 0;
-}
-
 /* Slider */
 #container_cards {
   display: flex;
   width: 95%;
-  margin-left: 20px;
+  margin-left: 120px;
   margin-right: 20px;
   margin-top: 10px;
   margin-bottom: 50px;
@@ -181,18 +142,11 @@ body {
   text-decoration: none;
 }
 
-.logo5 img {
+.logo img {
   display: block;
   padding-top: 10px;
   width: 90px;
   height: 60px;
-}
-
-.moedas ul {
-  color: #fff;
-  font-size: 20px;
-  font-family: "Lucida Console", "Courier New", monospace;
-  display: list-item;
 }
 
 .product-selection[_ngcontent-tca-c98] .options[_ngcontent-tca-c98] storefront-product-option[_ngcontent-tca-c98],
