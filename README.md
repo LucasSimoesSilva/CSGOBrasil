@@ -58,12 +58,13 @@ Passos para executar o código:
 6 - Inicialize através da IDE a classe em Java `src/main/java/com/sd/csgobrasil/CsgobrasilApplication.java`;
 
 7 - Após finalizar por completo o passo anterior, vá para a IDE que está com a pasta `front-end` aberta e execute o comando: `npm install -g http-server` e logo após o comando `http-server -a 127.0.0.1 -p 'porta desejada'` no terminal na respectiva pasta do diretório `./front-end`;
+Exemplo:`http-server -a 127.0.0.1 -p 5500`
 
 8 - Caso haja algum erro para abrir o servidor na porta padrão, execute novamente o comando, porém utilizando outra porta;
 
 9 - Abra em seu navegador favorito a seguinte URL: `http://127.0.0.1: 'porta do servidor' /homePage/home-page.html`. Exemplo:`http://127.0.0.1:5500/homePage/home-page.html`<br>
     - Caso você possua o plugin `Live Server` em seu Visual Studio Code, você pode utilizar esta extensão para inicializar o server, abrindo a página home-page.html
 
-Extra - Caso deseje fazer Login sem cadastrar um usuário no sistema, já há um usuário pré-cadastrado com o email:`ca@gmail` e senha:`9090` e um usuário administrado, email:`admin@admin.com` e senha:`admin`
+Extra - Caso deseje fazer Login sem cadastrar um usuário no sistema, já há um usuário pré-cadastrado com o email:`ca@gmail` e senha:`9090` e um usuário administrador, email:`admin@admin.com` e senha:`admin`
 
 10 - Usufrua do sistema!
