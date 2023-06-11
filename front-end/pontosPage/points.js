@@ -13,7 +13,7 @@ function confirmarCompra() {
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire('Compra Confirmada', 'Moedas adicionadas com sucesso!', 'success');
-
+        
                 const elementos = document.querySelectorAll('.selected');
                 elementos.forEach((elemento) => {
                     elemento.classList.remove('selected');
@@ -26,6 +26,7 @@ function confirmarCompra() {
                     updateUser(result);
                     total = 0;
                     pontos.textContent = 0;
+                    setTimeout(() => {location.reload()},2000);
                 });
 
             } else {

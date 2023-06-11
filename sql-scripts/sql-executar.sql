@@ -98,8 +98,16 @@ insert into user_skins_user(user_id, skins_user_id) values(1,1), (1,3),
 (3,11), (3,12), (3,13), (3,14), (3,15), (3,16), (3,17), (3,18), (3,19), (3,20),
 (4,21),(4,22),(4,23),(4,24),(4,25),(4,26),(4,27),(4,28),(4,29),(4,30),(4,31),(4,32),(4,33);
 
+insert into movement(id_comprador, id_vendedor,id_skin, estado_venda, pontos) values (1,3,3,true,7000), (1,3,1,true,10000), (2,3,4,true,6000),
+(2,3,5,true,1000), (2,3,6,true,1400), (2,3,7,true,4000), (2,3,8,true,3000), (2,3,9,true,5000), (2,3,10,true,2500);
+
 insert into movement(id_vendedor,id_skin, estado_venda, pontos) values (1,3,false,7000), (1,1,false,10000), (2,4,false,6000),
+(2,5,false,1000), (2,6,false,1400), (2,7,false,4000), (2,8,false,3000), (2,9,false,5000), (2,10,false,2500),
 (3,11,false,3000), (3,12,false,2500), (3,13,false,9500), (3,14,false,8000), (3,15,false,6000), 
 (3,16,false,4000), (3,17,false,3000), (3,18,false,2000), (3,19,false,5000), (3,20,false,2000),
 (4,21,false,2000),(4,22,false,3000),(4,23,false,4500),(4,24,false,5000),(4,25,false,8000),
 (4,26,false,5000),(4,27,false,4000),(4,28,false,2000),(4,29,false,6000),(4,30,false,3000),(4,31,false,5000),(4,32,false,1500),(4,33,false,2000);
+
+
+
+

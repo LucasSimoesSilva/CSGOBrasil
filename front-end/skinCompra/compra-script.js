@@ -7,6 +7,7 @@ var raridadeSkin = document.getElementById('raridadeSkin');
 var imagemSkin = document.getElementById('skinImage');
 var btnComprar = document.getElementById('comprar')
 var id_usuario = localStorage.getItem('usuarioId')
+var usuario_pontos = 0;
 
 var alertText_compra = document.getElementById('alertText_compra');
 
@@ -24,6 +25,20 @@ async function getSkinById(id) {
     });
 }
 
+async function getUsuarioById(id) {
+    const response = await fetch('http://localhost:8080/user/' + id, {
+        method: 'GET',
+        headers: {
+            "content-type": "application/json"
+        }
+    });
+
+    await response.json().then((result) => {
+        usuario_pontos = result.pontos
+    });
+}
+
+
 
 async function getMovementById(id) {
     const response = await fetch('http://localhost:8080/movement/' + id, {
@@ -38,14 +53,27 @@ async function getMovementById(id) {
         if (result.idVendedor == id_usuario) {
             btnComprar.disabled = true;
             btnComprar.style.backgroundColor = 'black';
+            btnComprar.style.cursor = 'default';
             alertText_compra.classList.remove('invisibleText');
             alertText_compra.classList.add('alertText');
             alertText_compra.textContent = 'Esta skin já pertênce a você'
+        } else if (usuario_pontos < result.pontos) {
+            btnComprar.disabled = true;
+            btnComprar.style.backgroundColor = 'black';
+            alertText_compra.classList.remove('invisibleText');
+            alertText_compra.classList.add('alertText');
+            alertText_compra.textContent = 'Pontos insuficientes'
+            btnComprar.style.cursor = 'default';
         }
     });
 };
 
-getMovementById(id_venda);
+getUsuarioById(id_usuario).then(() => {
+    getMovementById(id_venda);
+
+});
+
+
 
 function completePage(nome, preco, raridade, imagem) {
     nomeSkin.textContent = nome;

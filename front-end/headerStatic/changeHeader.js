@@ -5,6 +5,7 @@ var relatorioLink = document.getElementById("relatorio");
 var aboutLink = document.getElementById('about')
 var pontosLink = document.getElementById("pontos")
 var dropdowDiv = document.getElementById("dropdowDiv");
+var compraSkinsLink = document.getElementById("comprarSkins")
 var logout = document.getElementById("logout");
 
 var cargo = "cliente"
@@ -25,8 +26,9 @@ async function getUserById(id){
 
 if (id > 0) {
     loginLink.classList.add("hiddenItem");
-    skinsLink.classList.remove("hiddenItem")
-    pontosLink.classList.remove("hiddenItem")
+    skinsLink.classList.remove("hiddenItem");
+    pontosLink.classList.remove("hiddenItem");
+    compraSkinsLink.classList.remove("hiddenItem");
     
     var usuarioLink = document.createElement("a");
     getUserById(id).then((result) => {

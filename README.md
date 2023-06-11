@@ -37,30 +37,30 @@
 
 <hr>
 
-*AVISO*<br>
+**AVISO**<br>
 Tenha certeza de utilizar as versões corretas do Java e do Node, pois há diversas funcionalidades sensíveis a versões, então é de grande importância que a configuração de versões esteja correta.
 
 Passos para executar o código:
 
 1 - Clone o repositório https://github.com/LucasSimoesSilva/CSGOBrasil/tree/main;
 
-2 - Abra a pasta back-end em uma IDE que aceite a linguagem Java;
+2 - Abra a pasta `back-end` em uma IDE que aceite a linguagem Java;
 
-3 - Abra a pasta front-end em uma outra IDE (recomendado: Visual Studio Code);
+3 - Abra a pasta `front-end` em uma outra IDE (recomendado: Visual Studio Code);
 
-4 - Execute em uma IDE que tenha suporte para a linguagem mysql o script 'sql-executar.sql' da pasta 'sql-scripts';(recomendado: MySQL Workbench 8.0 ou DBeaver Community)
+4 - Execute em uma IDE que tenha suporte para a linguagem mysql o script `sql-executar.sql` da pasta `sql-scripts`;(recomendado: MySQL Workbench 8.0 ou DBeaver Community)
 
-5 - Dentro da pasta back-end através da IDE, ajuste no arquivo src/main/resources/application.properties e na classe src/main/java/com/sd/csgobrasil/conn/ConnectionJdbc.java os atributos url, username e password de forma com que correspondam com as configurações de seu sistema para banco de dados;
+5 - Dentro da pasta `back-end` através da IDE, ajuste no arquivo `src/main/resources/application.properties` e na classe `src/main/java/com/sd/csgobrasil/conn/ConnectionJdbc.java` os atributos url, username e password de forma com que correspondam com as configurações de seu sistema para banco de dados;
 
-6 - Inicialize através da IDE a classe em Java src/main/java/com/sd/csgobrasil/CsgobrasilApplication.java;
+6 - Inicialize através da IDE a classe em Java `src/main/java/com/sd/csgobrasil/CsgobrasilApplication.java`;
 
-7 - Após finalizar por completo o passo anterior, vá para a IDE que está com a pasta front-end aberta e execute o comando: npm install -g http-server e logo após o comando http-server -a 127.0.0.1 -p 'porta desejada' no terminal na respectiva pasta do diretório ./front-end
+7 - Após finalizar por completo o passo anterior, vá para a IDE que está com a pasta `front-end` aberta e execute o comando: `npm install -g http-server` e logo após o comando `http-server -a 127.0.0.1 -p 'porta desejada'` no terminal na respectiva pasta do diretório `./front-end`;
 
 8 - Caso haja algum erro para abrir o servidor na porta padrão, execute novamente o comando, porém utilizando outra porta;
 
-9 - Abra em seu navegador favorito a seguinte URL: "http://127.0.0.1: 'porta do servidor' /homePage/home-page.html". Exemplo:http://127.0.0.1:5500/homePage/home-page.html<br>
-    - Caso você possua o plugin Live Server em seu Visual Studio Code, você pode utilizar esta extensão para inicializar o server, abrindo a página home-page.html
+9 - Abra em seu navegador favorito a seguinte URL: `http://127.0.0.1: 'porta do servidor' /homePage/home-page.html`. Exemplo:`http://127.0.0.1:5500/homePage/home-page.html`<br>
+    - Caso você possua o plugin `Live Server` em seu Visual Studio Code, você pode utilizar esta extensão para inicializar o server, abrindo a página home-page.html
 
-Extra - Caso deseje fazer Login sem cadastrar um usuário no sistema, já há um usuário pré-cadastrado com o email:ca@gmail e senha:9090 e um usuário administrado, email:admin@admin.com e senha:admin
+Extra - Caso deseje fazer Login sem cadastrar um usuário no sistema, já há um usuário pré-cadastrado com o email:`ca@gmail` e senha:`9090` e um usuário administrado, email:`admin@admin.com` e senha:`admin`
 
 10 - Usufrua do sistema!
